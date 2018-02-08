@@ -2,7 +2,7 @@
 
 Fitur laporan tersedia di [Paket Lanjutan](https://www.espocrm.com/extensions/advanced-pack/).
 
-Ada dua jenis laporan: List dan Kotak.
+Ada dua jenis laporan: List dan Grid.
 
 ## Laporan List
 
@@ -14,76 +14,76 @@ Pada bidang _Kolom_ pilih bidang yang ingin Anda tampilkan. Di bawah ini Anda da
 
 Pilih sortir yang diinginkan pada bidang _Daftar Pesanan_. 
 
-Pada bidang _Saring_ Anda dapat menentukan kriteria yang menentukan catatan apa yang akan tercantum dalam laporan Anda. Anda bisa menggunakan operator logika 'ATAU' dan 'DAN' di sini.
+Pada bidang _Saring_ Anda dapat menentukan kriteria yang menentukan catatan apa yang akan tercantum dalam laporan Anda. Anda bisa menggunakan operator logika 'OR' dan 'AND' di sini.
 
 Bidang _Penyaringan Waktu_ memungkinkan Anda menentukan filter yang berbeda sebelum menjalankan laporan.
 
 Anda dapat __mengexport__ daftar hasil laporan ke format excel dan csv.
 
-## Grid Reports
+## Laporan Grid
 
-Grid reports result summarized values grouped by specified fields. These reports can be displayed as a chart.
+Laporan Grid menghasilkan nilai ringkas yang dikelompokkan menurut bidang yang ditentukan. Laporan ini bisa ditampilkan sebagai bagan.
 
-![Grid reports](../_static/images/user-guide/reports/grid.png)
+![Laporan Grid](../_static/images/user-guide/reports/grid.png)
 
-To create new grid report click on Reports tab and then click Create Report button. Choose needed Entity Type then click Create button at Grid Report section.
+Untuk membuat laporan grid baru klik pada tab Report kemudian klik tombol Buat Laporan. Pilih Tipe Entiti yang dibutuhkan lalu klik tombol Buat di bagian Laporan Grid.
 
-At _Group By_ field pick one or two fields you want your report data be grouped by. It's possible to group by year, month, day for date fields. If you group by two fields your report will be considered as three-dimensional.
+Di bidang _Grup Menurut_ pilih satu atau dua bidang yang Anda inginkan agar data laporan Anda dikelompokkan. Anda dapat mengelompokkan menurut tahun, bulan, hari untuk bidang tanggal. Jika Anda mengelompokkan dua kolom, laporan Anda akan dianggap tiga dimensi.
 
-At _Columns_ field select one or more aggregate functions like COUNT, SUM (summation), MIN, MAX, AVG (average).
+Di bidang _Kolom_ pilih satu atau beberapa fungsi gabungan seperti COUNT, SUM (penjumlahan), MIN, MAX, AVG (rata-rata).
 
-_Order by_ field defines how report data will be sorted.
+Bidang _Sortir berdasarkan_ mendefinisikan bagaimana data laporan akan diurutkan.
 
-At _Filters_ section you can specify criteria that determines what records will be used in your report. You can use logical operators 'OR' and 'AND' here.
+Pada bagian _Saring_ Anda dapat menentukan kriteria yang menentukan catatan apa yang akan digunakan dalam laporan Anda. Anda bisa menggunakan operator logika 'OR' dan 'AND' di sini.
 
-_Runtime Filters_ allows you to specify different filters before you run the report.
+_Penyaringan Waktu_ memungkinkan Anda menentukan filter yang berbeda sebelum menjalankan laporan.
 
-Grid report allows displaying results in a chart form. There are following _chart types_: Bar (Horizontal), Bar (Vertical), Pie, Line.
+Laporan grid memungkinkan menampilkan hasil dalam bentuk grafik. Ada jenis _tipe bagan_: Bar (Horizontal), Bar (Vertikal), Pie, Line.
 
-It's possible to __export__ grid report results to excel and csv formats.
+Ini memungkinkan untuk __mengexport__ hasil laporan grid ke format excel dan csv.
 
-## Filters
+## Penyaringan
 
-### Field filter
+### Bagian penyaringan
 
-Simple to use type of filters. You can also pick fields of target entity as well as related entitites.
+Sangat mudah untuk menggunakan jenis penyaringan. Anda juga dapat memilih bidang entitas target dan juga entitites terkait.
 
-![Field filter](../_static/images/user-guide/reports/filter-field.png)
+![Bagian penyaringan](../_static/images/user-guide/reports/filter-field.png)
 
-### OR group
+### Grup OR
 
-OR means that at least one condition under the group must be met.
+OR berarti setidaknya satu kondisi di bawah kelompok harus dipenuhi.
 
-![OR group](../_static/images/user-guide/reports/filter-or.png)
+![Grup OR](../_static/images/user-guide/reports/filter-or.png)
 
-### AND group
+### Grup AND
 
-AND means that all conditions under the group must be met.
+AND berarti bahwa semua kondisi di bawah kelompok harus dipenuhi.
 
-### NOT group
+### Grup NOT
 
-Provides an ability to filter records that don't meet specified criteria. E.g. listing accounts that don't have any opportunity with Closed Won or Closed Lost status.
+Menyediakan kemampuan untuk menyaring catatan yang tidak memenuhi kriteria yang ditentukan. Misalnya daftar akun yang tidak memiliki peluang dengan status Closed Won atau Closed Lost.
 
-![NOT group](../_static/images/user-guide/reports/filter-not.png)
+![Grup NOT](../_static/images/user-guide/reports/filter-not.png)
 
-### Complex Expression
+### Pernyataan Kompleks
 
-For more advanced use. You can apply function for certain database column and compare it with the result of [formula](../administration/formula.md) expression.
+Untuk penggunaan lebih maju. Anda dapat menerapkan fungsi untuk kolom database tertentu dan membandingkannya dengan hasil ekspresi [formula](../administration/formula.md).
 
-Note: If you need to compare just with a simple string value you should put it into single quotes `'some string'`.
+Catatan: Jika Anda perlu membandingkan hanya dengan nilai string sederhana, Anda harus memasukkannya ke dalam tanda kutip tunggal `'beberapa string'`.
 
-Note: Functions intended to interact with entity record will not work here because formule is not applied to specific record.
+Catatan: Fungsi yang dimaksudkan untuk berinteraksi dengan catatan entitas tidak akan bekerja disini karena formula tidak diterapkan pada record tertentu.
 
-![Complex Expression filter](../_static/images/user-guide/reports/filter-complex.png)
+![Penyaringan Pernyataan Kompleks](../_static/images/user-guide/reports/filter-complex.png)
 
-## Displaying on dashboard
+## Menampilkan di Dasbor
 
-You can display any report on dashboard. For this you need add Report dashlet and then pick needed report at dashlet options.
+Anda dapat menampilkan laporan di dasbor. Untuk ini Anda perlu menambahkan Laporan dashlet dan kemudian memilih laporan yang diperlukan di opsi dashlet.
 
-## Email Sending
+## Pengiriman Email
 
-It's possible to make system to send report results to certain users on regular basis according specified time. This must be configured for certain reports individually.
+Ini memungkinkan sistem untuk mengirimkan hasil laporan kepada pengguna tertentu secara reguler sesuai waktu yang ditentukan. Ini harus dikonfigurasi untuk laporan tertentu secara terpisah.
 
-## Syncing with Target Lists
+## Menyingkronkan dengan Daftar Target
 
-It's possible to have target lists synced with list report results. It's convenient for mass email when you would like to send emails only to contacts that meet some criteria at the moment of sending. This feature is available on detail view of any target list at 'Sync with Reports' panel.
+Ini memungkinkan daftar target disinkronkan dengan daftar hasil laporan. Ini lebih mudah untuk email massal jika Anda ingin mengirim email hanya ke kontak yang memenuhi beberapa kriteria pada saat pengiriman. Fitur ini tersedia pada tampilan detail daftar target di panel 'Singkron dengan Laporan'.
