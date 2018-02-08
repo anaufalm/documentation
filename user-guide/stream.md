@@ -1,34 +1,34 @@
-# Stream
+# Siaran
 
-Stream in EspoCRM is a feed where you can see updates and new additions for records you follow. You are also can post to own stream and to stream of another users (since version 3.8.0). There are two kinds of stream in EspoCRM: record stream and user stream.
+Siaran di EspoCRM adalah umpan dimana Anda dapat melihat pembaruan dan penambahan baru untuk catatan yang Anda ikuti. Anda juga dapat mengeposkan siaran Anda sendiri dan melakukan siaran pada pengguna lain (sejak versi 3.8.0). Ada dua jenis siaran di EspoCRM: siaran rekaman dan siaran pengguna.
 
-By default the following entities have a stream: Accounts, Contacts, Leads, Opportunities, Cases. Administrators can enable or disable stream for a certain entity in [Entity Manager](../administration/entity-manager.md).
+Secara default, entitas berikut memiliki arus: Akun, Kontak, Prospek, Peluang, Kasus. Administrator dapat mengaktifkan atau menonaktifkan aliran untuk entitas tertentu di [Entity Manager](../administration/entity-manager.md).
 
-## Record Stream
+## Merekam Siaran
 
-Record Stream is shown in a Stream panel of a certain record on the detail view. Posts, updates and new additions related to the current record are displaed here.
+Merekam Siaran ditampilkan di panel Siaran dari sebuah record tertentu pada tampilan detail. Pos, update dan tambahan baru yang terkait dengan rekaman saat ini digantikan disini.
 
-## User Stream
+## Pengguna Siaran
 
-Users can see their stream in Stream dashlet as well as under Stream tab. Users also can see stream of another users in the user's detail view, if they have an access that is controlled by `User Pemission` field of Roles.
+Pengguna dapat melihat siaran mereka di dashlet Stream dan juga di bawah tab Siaran. Pengguna juga dapat melihat aliran pengguna lain di tampilan detail pengguna, jika mereka memiliki akses yang dikendalikan oleh Aturan bidang `User Pemission`.
 
-In user stream you can see posts, updates and new additions related to records the user follows. You also can see posts addressed to the user. Those posts are not related to any record.
+Dalam siaran pengguna Anda dapat melihat posting, pembaruan dan penambahan baru yang terkait dengan catatan yang diikuti pengguna. Anda juga bisa melihat posting yang ditujukan ke pengguna. Pos tersebut tidak terkait dengan catatan apapun.
 
-## Notifications
+## Notifikasi
 
-You will recieve notifications about new additions to your stream that were caused by another users.
+Anda akan menerima pemberitahuan tentang penambahan baru pada aliran Anda yang disebabkan oleh pengguna lain.
 
-## Posts
+## Postingan
 
-You can create post related to a certain record. You also able to attach multiple files and images to your post. If you want to mention somebody in your post you need just type `@` symbol and start to type user's name. The user you has mentioned in your post will be notified about it.
+Anda bisa membuat postingan yang berhubungan dengan record tertentu. Anda juga bisa melampirkan beberapa file dan gambar ke postingan anda. Jika Anda ingin menyebutkan seseorang di pos Anda, Anda perlu mengetikkan simbol `@` dan mulai mengetikkan nama pengguna. Pengguna yang telah Anda sebutkan di pos Anda akan diberi tahu tentang hal itu.
 
-## Posts to users
+## Postingan ke pengguna
 
-_This feature is available since version 3.8.0._
+_Fitur ini tersedia sejak versi 3.8.0._
 
-Users can create post to certain users, to certain teams, to all users and to self. An access for this ability is controlled by `Assignment Permission` field of Roles.
+Pengguna dapat membuat posting ke pengguna tertentu, ke tim tertentu, ke semua pengguna dan untuk diri sendiri. Akses untuk kemampuan ini dikendalikan oleh Aturan bidang `Assignment Permission`.
 
-## Filtering
+## Penyaringan
 
-You can filter what to show in a stream: `All`, `Posts` or `Updates`.  
+Anda dapat menyaring apa yang akan ditampilkan di siaran: `Semua`,` Posting` atau `Pembaruan`.  
 
