@@ -1,24 +1,24 @@
-# Reports
+# Laporan
 
-Reports feature is available in [Advanced Pack](https://www.espocrm.com/extensions/advanced-pack/).
+Fitur laporan tersedia di [Paket Lanjutan](https://www.espocrm.com/extensions/advanced-pack/).
 
-There are two types of reports: List and Grid.  
+Ada dua jenis laporan: List dan Kotak.
 
-## List Reports
+## Laporan List
 
-List report results the list of records that meet the specified criteria.
+Hasil laporan list adalah list dari catatan yang memenuhi kriteria tertentu.
 
-To create new list report click on Reports tab and then click Create Report button. Choose needed Entity Type then click Create button at List Report section.
+Untuk membuat laporan list baru klik pada tab Report kemudian klik tolbol Buat Lapotan. Pilih Jenis Entitas yang dibutuhkan lalu klik tombol Buat di bagian Laporan List.
 
-At _Columns_ field pick fields you would like to be displayed. Below you can specify display parameters for every column e.g. width and align.
+Pada bidang _Kolom_ pilih bidang yang ingin Anda tampilkan. Di bawah ini Anda dapat menentukan parameter tampilan untuk setiap kolom mis. lebar dan sejajar
 
-Choose needed sorting at _List Order_ field. 
+Pilih sortir yang diinginkan pada bidang _Daftar Pesanan_. 
 
-At _Filters_ section you can specify criteria that determines what records will be listed in your report. You can use logical operators 'OR' and 'AND' here.
+Pada bidang _Saring_ Anda dapat menentukan kriteria yang menentukan catatan apa yang akan tercantum dalam laporan Anda. Anda bisa menggunakan operator logika 'ATAU' dan 'DAN' di sini.
 
-_Runtime Filters_ allow you to specify different filters before you run the report.
+Bidang _Penyaringan Waktu_ memungkinkan Anda menentukan filter yang berbeda sebelum menjalankan laporan.
 
-You can __export__ list report results to excel and csv formats.
+Anda dapat __mengexport__ daftar hasil laporan ke format excel dan csv.
 
 ## Grid Reports
 
