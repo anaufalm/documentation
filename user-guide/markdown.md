@@ -1,86 +1,86 @@
-# Markdown syntax
+# Sintaks Markdown
 
-Text fields support markdown syntax.
+Bidang teks mendukung sintaks markdown.
 
-## Code
+## Kode
 ```
-`some text`
-```
-
-`some text`
-
-## Multiline code
-
-```
-``` some text ``` 
+`contoh teks`
 ```
 
-```
-some text
-```
+`contoh teks`
 
-## Strong text
+## Kode multiline
 
 ```
-**some text**
+``` contoh teks ``` 
 ```
 
-**some text**
-
-## Emphasized text
-
 ```
-*some text*
+contoh teks
 ```
 
-*some text*
-
-## Deleted text
+## Teks tebal
 
 ```
-~~some text~~
+**contoh teks**
 ```
 
-~~some text~~
+**contoh teks**
 
-## Blockquote
-
-```
-> some
-> test
-```
-
-> some
-> text
-
-## Link
+## Teks miring
 
 ```
-[link text](https://www.espocrm.com)
-```
-[link text](https://www.espocrm.com)
-
-## Numbered list
-
-```
-1. Some item
-2. Another item
+*contoh teks*
 ```
 
-1. Some item
-2. Another item
+*contoh teks*
 
-## Unnumbered list
+## Teks tercoret
 
 ```
-* Some item
-* Another item
+~~contoh teks~~
 ```
 
-* Some item
-* Another item
+~~contoh teks~~
 
-## Horizontal line
+## Kutipan
+
+```
+> contoh
+> teks
+```
+
+> contoh
+> teks
+
+## Tautan
+
+```
+[teks tautan](https://www.espocrm.com)
+```
+[teks tautan](https://www.espocrm.com)
+
+## Daftar bernomor
+
+```
+1. Contoh item
+2. Item lainnya
+```
+
+1. Contoh item
+2. Item lainnya
+
+## Daftar tidak bernomor
+
+```
+* Contoh item
+* Item lainnya
+```
+
+* Contoh item
+* Item lainnya
+
+## Garis horisontal
 
 ```
 ___
