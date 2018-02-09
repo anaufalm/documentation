@@ -87,13 +87,13 @@ Kutipan dapat dicetak ke PDF. Tindakan ini tersedia dalam menu tarik-turun di sa
 
 Kutipan PDF bisa di kirim lewat email sebagai lampiran. Buka catatan quote, klik tarik-turun di samping tombol Edit dan klik Email PDF.
 
-## Penomoran otomatis
+## Penomoran Otomatis
 
 Anda dapat membuat bagian Nomor via Manajer Entiti untuk tipe entiti Kutipan. Administrasi> Manajer Entiti> Kutipan> Area> Tambah Area> Nomor. Maka Anda perlu menempatkannya pada tampilan detail menggunakan Manajer Tata letak.
 
 Nilai akan bertambah dengan setiap kutipan baru. Ada kemampuan untuk menentukan nomor berikutnya sebagai awalan.
 
-## Pajak default
+## Pajak Default
 
 Tersedia sejak EspoCRM 4.8.0.
 
