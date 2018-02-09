@@ -1,46 +1,46 @@
-# Quotes
+# Kutipan
 
-Quotes feature is available in [Advanced Pack](https://www.espocrm.com/extensions/advanced-pack/).
+Fitur penawaran tersedia di [Paket Lanjutan](https://www.espocrm.com/extensions/advanced-pack/).
 
-Quotes are specific group of products or services with their quantities and prices that you quote to customers.
+Kutipan adalah kelompok produk atau layanan tertentu dengan jumlah dan harga yang Anda kutip kepada pelanggan.
 
-Quotes has a relationship with Opportunity. You can add Quotes panel to Opportunity detail view at Administration > Layout Manager > Opportunities > Relationships. When creating a new quote linked to an opportunity it transfers opportunity items to the quote.
+Kutipan memiliki hubungan dengan Opportuniti. Anda bisa menambahkan panel Kutipan ke detail Opportuniti lihat di Administrasi> Manajer Tata letak> Opportuniti> Hubungan. Saat membuat kutipan baru terkait dengan peluang, itu mengalihkan item peluang ke penawaran.
 
-You can add Quotes panel to Accunt's detail view to be able to see related quotes. You can do it at Administration > Layout Manager > Accounts > Relationships.
+Anda dapat menambahkan panel Kutipan ke tampilan detail Akun untuk dapat melihat kutipan terkait. Anda dapat melakukannya di Administrasi> Manajer Tata letak> Akun> Hubungan.
 
-## Quote Items
+## Item Kutipan
 
-Quote has a list of items. Each item can represent a certain product or a service with description, quantity, tax rate, list price and unit price fields. It's possible to sort items manually.
+Kutipan memppunyai daftar item. Setiap item dapat mewakili produk atau layanan tertentu dengan deskripsi, jumlah, tarif pajak, daftar harga dan harga satuan. Ini memungkinkan untuk memilah item secara manual.
 
-There is an ability to add custon fields for Quote Item entity using Entity Manager.
+Anda dibolehkan untuk menambahkan bidang khusus untuk Item Kutipan yang menggunakan Manajer Entitas.
 
-## Templates
+## Template
 
-By default there are two available templates: Quote and Invoice. You can create new templates (Quotes list view > top-right dropdown menu > Templates) as well as edit existing ones.
+Secara default ada dua template yang tersedia: Kutipan and Faktur. Anda bisa membuat template baru (Tampilan daftar kutipan> menu dropdown kanan atas> Template) serta editan yang sudah ada.
 
-For more precise editing it's recommended to use Code View mode.
+Untuk pengeditan yang lebih tepat, sebaiknya menggunakan mode Tampilan Kode.
 
-You can print fields of Quote record as well as fields of related records by utilizing placeholders in your template.
+Anda dapat mencetak bidang catatan kutipan serta bidang catatan terkait dengan memanfaatkan placeholder di template Anda.
 
-Examples:
-`{{accountName}}` – Account name,
+Contoh:
+`{{accountName}}` – nama Akun,
 
-`{{{billingAddressStreet}}}` – street,
+`{{{billingAddressStreet}}}` – jalan,
 
-`{{account.type}}` – type of related Account,
+`{{account.type}}` – tipe Akun terkait,
 
-`{{assignedUser.lastName}}` – last name of the assigned user.
+`{{assignedUser.lastName}}` – nama belakang pengguna yang ditetapkan.
 
-If your line item is a product you can print product’s fields. 
+Jika item baris Anda adalah produk Anda dapat mencetak bidang produk. 
 
-Examples:
+Contoh:
 `{{product.length}}`, 
 
 `{{product.color}}`.
 
-Length and color are custom fields of Product entity in examples.
+Panjang dan warna adalah bidang kustom entitas Produk dalam contoh. 
 
-Looping through quote items:
+Perulangan melalui item kutipan:
 
 ```
 <!-- {{#each itemList}} -->
@@ -54,52 +54,52 @@ Looping through quote items:
 <!-- {{/each}} -->
 ```
 
-It's possible to print image fields: 
+Memungkinan Anda untuk mencetak bidang gambar: 
 
 ```
 <img src="{{file imageId}}">
 ```
-where `imageId` – the name of custom image field in Quote entity concatenated with the suffix `Id`.
+dimana `imageId` – nama bidang gambar khusus pada entitas Kutipan yang digabungkan dengan akhiran `Id`.
 
-For product line item:
+Untuk item produk:
 ```
 <img src="{{file product.photoId}}">
 ```
 
-To display float numbers (like quantity, unitPrice etc.) w/o fractional part (as integer) use following expressions (since version 4.8.3):
+Untuk menampilkan nomor melayang (seperti quantity, harga unit dll) dengan bagian fraksional (sebagai integer) gunakan ungkapan berikut (sejak versi 4.8.3):
 ```
 {{numberFormat quantity_RAW decimals=0}}
 ```
 
-Custom formatting for currency values (since version 4.8.3):
+Format khusus untuk nilai mata uang (sejak versi 4.8.3):
 ```
 {{numberFormat unitPrice_RAW decimals=2 decimalPoint=',' thousandsSeparator=' '}}
 ```
-Value `10000.5` will be printer as `10 000,50`. 
+Nilai `10000.5` akan dicetak sebagai `10 000,50`. 
 
-To display text fileds (multiline) use triple braces: `{{{description}}}`.
+Untuk menampilkan teks fileds (multiline) gunakan tiga petik: `{{{description}}}`.
 
-## Print to PDF
+## Cetak ke PDF
 
-Quotes can be printed to PDF. This action is available in dropdown next to Edit button on the quote’s detail view. Then you will be prompted to select Template.
+Kutipan dapat dicetak ke PDF. Tindakan ini tersedia dalam menu tarik-turun di samping tombol Edit pada tampilan detail kutipan. Kemudian Anda akan diminta untuk memilih Template.
 
-## Email Quote
+## Email Kutipan
 
-Quote PDF can be send in email as an attachment. Open quote record, click dropdown next to Edit button and the click Email PDF.
+Kutipan PDF bisa di kirim lewat email sebagai lampiran. Buka catatan quote, klik tarik-turun di samping tombol Edit dan klik Email PDF.
 
-## Automatic numbering
+## Penomoran otomatis
 
-You can create a Number field via Entity Manager for Quote entity type. Administration > Entity Manager > Quote > Fields > Add Filed > Number. Then you need to place it in on detail view using Layout Manager.
+Anda dapat membuat bagian Nomor via Manajer Entiti untuk tipe entiti Kutipan. Administrasi> Manajer Entiti> Kutipan> Area> Tambah Area> Nomor. Maka Anda perlu menempatkannya pada tampilan detail menggunakan Manajer Tata letak.
 
-The value will be incremented by every new quote. There is an ability to specify the next number as well as prefix.
+Nilai akan bertambah dengan setiap kutipan baru. Ada kemampuan untuk menentukan nomor berikutnya sebagai awalan.
 
-## Default tax
+## Pajak default
 
-Available since EspoCRM 4.8.0.
+Tersedia sejak EspoCRM 4.8.0.
 
-1. Specify default Tax record at Administration > Entity Manager > Quotes > fields > Tax > Default.
-2. Specify default tax rate at Administration > Entity Manager > Quotes > fields > Tax Rate > Default.
+1. Tentukan catatan Pajak default pada Administrasi> Manajer Entiti> Kutipan> area> Pajak> Default.
+2. Tentukan tingkat pajak default pada Administrasi> Manajer Entiti> Kutipan> area> tingkat pajak> Default.
 
-## Invoices
+## Tagihan
 
-Quote can be treated as an invoice if its status became `Approved`. Then _Date Invoiced_, _Invoice Number_ fields show up. You can use different template for invoices for printing.
+Kutipan bisa dianggap sebagai tagihan jika statusnya menjadi `Disetujui`. Kemudian area _Tanggal Tagihan_, _Nomor Tagihan_ muncul. Anda dapat menggunakan template yang berbeda untuk faktur untuk dicetak.
