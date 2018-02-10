@@ -1,6 +1,5 @@
 # Konfigurasi Server untuk EspoCRM
 
-EspoCRM can be installed on the Apache ([instructions](apache-server-configuration.md)), Nginx ([instructions](nginx-server-configuration.md)), or IIS server with support PHP version 5.6 or greater and MySQL version 5.1 or greater.
 EspoCRM dapat diinstal di Apache ([intruksi](apache-server-configuration.md)), Nginx ([intruksi](nginx-server-configuration.md)), atau server IIS dengan dukungan versi PHP 5.6 atau lebih dan MySQL versi 5.1 atau yang lebih baru.
 
 ## Rekomendasi Konfigurasi
@@ -18,7 +17,6 @@ EspoCRM membutuhkan PHP 5,6 atau lebih, dengan ekstensi berikut diaktifkan:
 * [mbstring](http://php.net/manual/en/book.mbstring.php);
 * [cURL](http://php.net/manual/en/book.curl.php).
 
-It's also recommended to have [mailparse](https://pecl.php.net/package/mailparse) pecl extension installed. It's needed for smooth working of email fetching feature.
 Ini juga disarankan untuk memasang ekstensi pecl [mailparse](https://pecl.php.net/package/mailparse). Ini diperlukan untuk kelancaran fitur pengambilan email.
 
 
@@ -35,8 +33,6 @@ upload_max_filesize = 50M
 
 ### Persyaratan MySQL
 
-EspoCRM supports MySQL version 5.1 or greater.
-These are no special peculiarities. All default settings are good for EspoCRM.
 EspoCRM mendukung versi MySQL 5.1 atau yang lebih baru.
 Ini bukan kekhasan khusus. Semua pengaturan standar bagus untuk EspoCRM.
 
@@ -56,14 +52,10 @@ find . -type d -exec chmod 755 {} + && find . -type f -exec chmod 644 {} +;
 find data custom -type d -exec chmod 775 {} + && find data custom -type f -exec chmod 664 {} +;
 ```
 
-All files should be owned and group-owned by the webserver process. It can be “www-data”, “daemon”, “apache”, “www”, etc.  
-Note: On Bitnami Stack, files should be owned and group-owned by “daemon” user.  
-Note: On shared hosts, files should be owned and group-owned by your user account.
 Semua file harus dimiliki dan milik-kelompok oleh proses webserver. Bisa berupa "www-data", "daemon", "apache", "www", dll.
 Catatan: Di Bitnami Stack, file harus dimiliki dan milik-kelompok oleh pengguna "daemon".
 Catatan: Pada host bersama, file harus dimiliki dan milik-grup oleh akun pengguna Anda.
 
-To set the owner and group-owner, execute these commands in the terminal:
 Untuk mengatur pemilik dan milik-grup, jalankan perintah ini di terminal:
 
 ```
