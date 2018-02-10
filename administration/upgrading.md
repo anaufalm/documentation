@@ -1,28 +1,28 @@
-# How to upgrade EspoCRM
+# Bagaimana Meng-upgrade EspoCRM
 
-EspoCRM can be upgraded to the latest version by the following steps:
+EspoCRM dapat diupgrade ke versi terbaru dengan mengikuti langkah berikut:
 
-### Step 1. Check your current version
+### Langkah 1. Periksa versi Anda saat ini
 
-To check your current version go to Administration > Upgrade page.
+Untuk memeriksa versi Anda saat ini, masuk ke halaman Administrasi> Halaman upgrade.
 
-### Step 2. Download needed upgrade packages
+### Langkah 2. Download paket upgrade yang dibutuhkan
 
-Go to the upgrade page https://www.espocrm.com/download/upgrades/ and based on your currect version download needed packages.
+Buka halaman upgrade https://www.espocrm.com/download/upgrades/ dan pusatkan versi paket download yang Anda gunakan saat ini.
 
-### Step 3. Create a backup (optional)
+### Langkah 3. Buatlah cadangan (opsional)
 
-Create a backup of your EspoCRM files and data before upgrading. Follow [these instructions](https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md) to get it done.
+Buatlah cadangan file dan data EspoCRM Anda sebelum melakukan upgrade. Ikuti  [petunjuk ini](https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md) untuk menyelesaikannya.
 
-### Step 4. Upgrade process
+### Step 4. Proses upgrade
 
-Go to Administration > Upgrade. Upload and install one by one upgrade packages.
+Buka Administrasi> Upgrade. Unggah dan instal satu demi satu paket upgrade.
 
-You can check whether you have the latest version at Menu > About.
+Anda dapat memeriksa apakah Anda memiliki versi terbaru di Menu> About.
 
-## Upgrade via CLI
+## Upgrade lewat CLI
 
-You can also run upgrade via command line interface. You need to execute the following command from EspoCRM root directory:
+Anda juga bisa menjalankan upgrade lewat baris perintah antar muka. Anda perlu menjalankan perintah berikut dari direktori root EspoCRM:
 
 ```
 php upgrade.php /path/to/upgrade/package.zip
