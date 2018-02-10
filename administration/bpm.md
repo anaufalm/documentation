@@ -72,9 +72,9 @@ Mengakhiri alur terkini. Ini tidak mengakhiri alur yang mengalir secara paralel.
 
 Mengakhiri semua alur. Perihal selanjutnya berakhir.
 
-### *Gateway*
+### Gateway
 
-*Gateway* ditampilkan sebagai berlian.
+Gateway ditampilkan sebagai berlian.
 
 #### Gateway Eksklusif
 
