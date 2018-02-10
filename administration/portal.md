@@ -1,55 +1,55 @@
 # Portal
 
-Portal provides an ability to access specific crm data and functions for your customers and partners. Administrator can create multiple portals. Each portal can have its own settings, dashlboard, user list, access control settings.
+Portal menyediakan kemampuan untuk mengakses data dan fungsi crm spesifik untuk pelanggan dan mitra Anda. Administrator dapat membuat beberapa portal. Setiap portal bisa memiliki pengaturan sendiri, dasbor, daftar pengguna, pengaturan akses kontrol.
 
-To create portal follow Administration > Portals, click Create Portal button.
+Untuk membuat portal ikuti Administrasi> Portal, klik tombol Buat Portal.
 
-* `Is Active`. If not check portal won't be available for anybody.
-* `Is Default`. Means that portal will be available by shorter url: http(s)://YOUR_ESPO_URL/portal.
-* `Roles`. Specify one or multiple portal roles that will be applied to users logged into portal. More information about portal roles is below.
-* `Tab List`. Tabs which will be shown in navigation bar.
-* `Dashboard Layout`. Specify dashlets that will be displayed on the home page of the portal. Note that portal users can't configure their dashboard.
-* `URL`. Read only field that displays the link you can access the portal with.
+* `Aktif`. Jika tidak cek portal tidak akan tersedia bagi siapa saja.
+* `Default`. Berarti portal itu akan tersedia dengan tautan yang lebih singkat: http(s)://TAUTAN_ESPO_ANDA/portal.
+* `Peran`. Tentukan satu atau beberapa peran portal yang akan diterapkan pada pengguna yang masuk ke portal. Informasi lebih lanjut tentang peran portal ada di bawah ini.
+* `Daftar Tab`. Tab yang akan ditampilkan di bilah navigasi.
+* `Tata letak Dasbor`. Tentukan dasbor yang akan ditampilkan di halaman awal portal. Perhatikan bahwa pengguna portal tidak dapat mengonfigurasi dasbor mereka.
+* `Tautan`. Bidang baca-saja yang menampilkan link yang bisa anda akses dengan portal.
 
-## Portal Users
+## Pengguna Portal
 
-Administrators can create portal users.
+Administrator dapat membuat pengguna portal.
 
-1. Administration > Users.
-2. Click right dropdown next to Create User.
-3. Click Create Portal User.
-4. Select Contact the portal user will be linked with.
-5. Fill the form and click save.
+1. Administrasi > Pengguna.
+2. Klik kanan tarik-ulur di sebelah Buat pengguna.
+3. Klik Buat User Portal.
+4. Pilih Hubungi pengguna portal yang akan ditautkan.
+5. Isi form dan klik simpan.
 
-Portal user should be linked to Portal record to be able to access that portal.
+Pengguna portal harus terhubung ke catatan Portal agar dapat mengakses portal tersebut.
 
-## Portal Roles
+## Peran Portal
 
-Portal roles are similar to regular roles in EspoCRM but with a few distinctions.
+Peran portal mirip dengan peran reguler di EspoCRM namun dengan beberapa perbedaan.
 
-* `not-set` level denies an access.
-* `own` level means that the record is created by the user. E.g. portal user cased some case and this case is owned by this user.
-* `account` level means that the record is related to the account the portal user is related to.
-* `contact` level means that the record is related to the contact the portal user is related to.
+* Tingkat `tidak-diatur` menyangkal terhadap akses.
+* Level `sendiri` berarti rekaman dibuat oleh pengguna. Misalnya pengguna portal mengumpulkan beberapa kasus dan kasus ini dimiliki oleh pengguna ini.
+* Level `akun` berarti bahwa catatan tersebut terkait dengan akun yang terkait dengan pengguna portal.
+* Level `kontak` berarti record berhubungan dengan kontak yang berhubungan dengan pengguna portal.
 
-Assigned User and Teams fields are read only for portal users.
+Bidang Pengguna and Tim yang ditugaskan hanya untuk pengguna portal.
 
-### Example
+### Contoh
 
-`Portal users should be able to create cases, view cases related to their account; they should be able to view knowledge base.`
+`Pengguna portal harus dapat membuat kasus, melihat kasus yang terkait dengan akun mereka; mereka harus bisa melihat basis pengetahuan.`
 
-1. Open Create Portal Role form (Administration > Portal Roles > Create Role).
-2. Enable access to Cases, set: `create - yes, read - account, edit - no, delete - no, stream - account`.
-3. Enable access to Knowledge Base, set `create - no, read - account, edit - no, delete - no`.
-4. Edit your portal record (Administration > Portals). Select your portal role in Roles field and then save.
+1. Buka formulir Buat Peran Portal (Administrasi> Peran Portal> Buat Peran).
+2. Aktifkan akses ke Kasus, atur: `buat - ya, baca - akun, ubah - tidak, hapus - tidak, siaran - akun`.
+3. Aktifkan akses ke Basis Pengetahuan, atur `buat - tidak, baca - akun, ubah - tidak, hapus - tidak`.
+4. Ubah catatan portal Anda (Administrasi> Portal). Pilih peran portal Anda di bidang Peran dan kemudian simpan.
 
-## Access to Portal
+## Akses ke Portal
 
-You can find the url for your portal in 'URL' field of the portal record. Also it's possible to use server configuration tools (such mod_rewrite) to be able to access by different url. For this case you need to fill in 'Custom URL' field.
+Anda dapat menemukan tautan untuk portal Anda di bidang 'Tautan' dari catatan portal. Juga mungkin untuk menggunakan alat konfigurasi server (seperti mod_rewrite) untuk dapat mengakses dengan tautan yang berbeda. Untuk kasus ini, Anda perlu mengisi kolom 'Tautan Khusus'.
 
-### Access portal by Custom URL for Apache server
+### Akses portal dengan Tautan Kustom untuk server Apache
 
-Custom URL: my-portal-host-name.com.
+Tautan Khusus: nama-host-portal-saya.com
 
 #### crm.portal.conf
 ```
@@ -72,9 +72,9 @@ ServerAlias my-portal-host-name.com
 
 ```
 
-#### Mod rewrite rules
+#### Mod menulis ulang peran
 
-Specify portal record ID instead of `{PORTAL_ID}`. Portal record ID can is avaialble in address bar of your web browser when you open detail view of the portal record. Like: https://my-espocrm-url.com/#Portal/16b9hm41c069e6j24. 16b9hm41c069e6j24 is a portal record id.
+Tentukan ID catatan ganti dengan `{PORTAL_ID}`. ID catatan utama dapat tersedia di bilah alamat browser web Anda saat Anda membuka detail tampilan catatan portal. Seperti: https://my-espocrm-url.com/#Portal/16b9hm41c069e6j24. 16b9hm41c069e6j24 adalah id rekam portal.
 
 ```
   RewriteCond %{HTTP_HOST} ^portal-host-name.com$
