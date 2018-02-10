@@ -1,105 +1,105 @@
-# Roles Management
+# Peran Manajemen
 
-## Overview
+## Ikhtisar
 
-In order to restrict access for some users you need to use Roles. Administrator can manage roles in Administration panel. Each role defines an access to certain areas (scopes) which is applied to users who own that role.
+Untuk membatasi akses bagi beberapa pengguna, Anda perlu menggunakan Peran. Administrator dapat mengelola peran di panel Administrasi. Setiap peran mendefinisikan akses ke area tertentu (cakupan) yang diterapkan pada pengguna yang memiliki peran tersebut.
 
-One user can have multiple roles. Those roles can be selected for a specific user (‘Roles’ field in User entry) and/or be inherited from the teams that user belongs to.
+Satu pengguna dapat memiliki banyak peran. Peran tersebut dapat dipilih untuk pengguna tertentu (bidang 'Peran' di entri Pengguna) dan/atau diwarisi dari tim yang menjadi milik pengguna.
 
-If a user has multiple roles then they will be merged so that permissive rule will have a higher priority. That allows administrator to manage access level control easily and flexibly.
+Jika pengguna memiliki banyak peran maka mereka akan digabungkan sehingga aturan permisif akan memiliki prioritas lebih tinggi. Itu memungkinkan administrator mengatur kontrol tingkat akses dengan mudah dan fleksibel.
 
-It's possible to see what permissions is applied to a certain user by clicking 'Access' button on the user's detail view.
+Anda dapat melihat izin apa yang diterapkan pada pengguna tertentu dengan mengeklik tombol 'Akses' pada tampilan detail pengguna.
 
 ![1](../_static/images/administration/roles-management/scope-level.png)
 
-## Example
+## Contoh
 
-For example, user belongs to team ‘Sales’. That team has single role ‘Salesman’. So all users from this team will obtain ‘Salesman’ role.
+Misalnya, pengguna milik tim 'Penjualan'. Tim itu memiliki peran tunggal 'Penjual'. Jadi semua pengguna dari tim ini akan mendapatkan peran 'Penjual'.
 
-‘Salesman’ role is defined the following way:
+Peran 'Penjual' didefinisikan sebagai berikut:
 
-Lead:
+Judul:
 ```
-create - yes
-read – team
-edit – own
-delete – no
-stream - team
+buat - ya
+baca – tim
+ubah – sendiri
+hapus – tidak
+siaran - tim
+```
+
+Opportuniti:
+```
+buat - ya
+baca – tim
+ubah – sendiri
+hapus – tidak
+siaran - tim
+```
+
+Pengguna hanya dapat membaca prospek dan peluang yang dimiliki tim 'Departemen Penjualan' (bidang 'Tim').
+Pengguna hanya dapat mengubah prospek dan peluang yang mereka tentukan atau yang telah mereka buat.
+Pengguna tidak dapat menghapus prospek atau peluang apa pun.
+
+Kami ingin memberikan lebih banyak hak kepada pengguna tertentu yang memegang posisi manajer penjualan di perusahaan. Karyawan ini harus memiliki kemampuan untuk membaca/mengubah/menghapus semua rekaman dari tim 'Penjualan'. Pengguna harus menjadi anggota tim 'Penjualan' kami. Namun, kami perlu membuat peran baru 'Manajer Penjualan' dan memilih peran ini untuk pengguna di bidang 'Peran'.
+
+Peran 'Manajer Penjualan' didefinisikan sebagai berikut:
+
+Judul:
+```
+buat - ya
+baca – tim
+ubah – tim
+hapus – tim
+siaran - tim
 ```
 
 Opportunity:
 ```
-create - yes
-read – team
-edit – own
-delete – no
-stream - team
-```
-
-Users will be able to read only those leads and opportunities which belong to ‘Sales Department’ team (‘Teams’ field).
-User will be able to edit only those leads and opportunities which they are assigned to or those they have created.
-Users won’t be able to remove any leads or opportunities.
-
-We want to give more rights to a certain user who holds sales manager position in the company. This employee must have an ability to read/edit/delete all records from ‘Sales’ team. The user should belong to our ‘Sales’ team. But we need to create the new role ‘Sales Manager’ and select this role for that user in ‘Roles’ field.
-
-‘Sales Manager’ role is defined the following way:
-
-Lead:
-```
-create - yes
-read – team
-edit – team
-delete – team
-stream - team
-```
-
-Opportunity:
-```
-create - yes
-read – team
-edit – team
-delete – team
-stream - team
+buat - ya
+baca – tim
+ubah – tim
+hapus – tim
+siaran - tim
 ```
 
 Our user will be able to manager all leads and opportunities from the ‘Sales’ team.
 
-## Special Permissions
+## Izin Khusus
 
-### Assignment Permission
+### Izin Penugasan
 
-Set this parameter to restrict ability to re-assign records to another user and/or teams. If you set `team` - then it will be possible to assign only to users from own team(s). If `no` - users won't be able to re-assign at all.
+Tetapkan parameter ini untuk membatasi kemampuan untuk menetapkan ulang catatan ke pengguna dan/atau tim lain. Jika Anda menetapkan `tim` - maka akan memungkinkan untuk menetapkan hanya kepada pengguna dari tim sendiri. Jika `no` - pengguna tidak akan dapat menugaskan kembali sama sekali.
 
-It also defines whether user is able to post to stream of another users/teams.
+Ini juga mendefinisikan apakah pengguna dapat mengirim ke pengguna lain/tim lain.
 
-### User Permission
+### Izin Pengguna
 
-Allows to restrict an ability for users to view activities, calendar and stream of other users.
+Memungkinkan untuk membatasi kemampuan pengguna untuk melihat aktivitas, kalender, dan arus pengguna lain.
 
-### Portal Permission
+### Izin Portal
 
-Defines an access to portal information, ability to post messages to portal users.
+Mendefinisikan akses ke informasi portal, kemampuan untuk mengirim pesan ke pengguna portal.
 
-### Group Email Account Permission
+### Izin Akun Surel Grup
 
-Defines an access to group email accounts, an ability to send emails from group SMTP.
+Mendefinisikan akses ke akun surel grup, kemampuan untuk mengirim surel dari grup SMTP.
 
-### Export Permission
+### Izin Mengekspor
 
-Defenies whether user have an ability to export records. (since version 4.9.0)
+Mendefenisikan apakah pengguna memiliki kemampuan untuk mengekspor catatan. (sejak versi 4.9.0)
 
-## Permissions by Default 
+## Izin secara Default 
 
-By default (if there are no any applied) users can read and edit all records. But can't delete any ones except those they have created and they are assigned to at the same time.
+Secara default (jika tidak ada pengguna yang diterapkan), pengguna dapat membaca dan mengedit semua catatan. Tetapi tidak dapat menghapus yang manapun kecuali yang telah mereka buat dan mereka ditugaskan pada saat bersamaan.
 
-There is an ability to restrict an access applied by default by enabling 'ACL Strict Mode' at Administration > Settings.
+Ada kemampuan untuk membatasi akses yang diterapkan secara default dengan mengaktifkan 'Mode Strict ACL' di Administrasi> Pengaturan.
 
-## Field Level Security
+## Keamanan Tingkat Bidang
 
-Allows to control an access for a specific fields.
+Memungkinkan untuk mengontrol akses untuk bidang tertentu.
 
-By default user can read all fields if one can read the record. User can edit any field if one can edit the record. You can restrict access to specific fields using Field Level Security.
+Secara default user bisa membaca semua bidang jika seseorang bisa membaca rekaman. Pengguna bisa mengubah bidang mana pun jika bisa mengubah rekaman. Anda dapat membatasi akses ke bidang tertentu menggunakan Keamanan Tingkat Bidang.
 
-In edit view  of a role record in Field Level section click plus icon next to the specific scope then select needed field. Then you will be able to specify the access level for `read` and `edit` actions. There are to options: `yes` and `no`.
+Pada tampilan mengubah catatan peran di kolom Level Bidang klik ikon plus disebelah scope spesifik lalu pilih bidang yang dibutuhkan. Kemudian Anda akan dapat menentukan tingkat akses untuk tindakan `baca` dan `edit`. Ada pilihan: `yes` dan` no`.
 
 ![2](../_static/images/administration/roles-management/field-level-secutiry.png)
