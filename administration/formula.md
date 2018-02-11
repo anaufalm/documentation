@@ -1,233 +1,233 @@
-# Calculated Fields (Formula)
+# Bidang yang Dihitung (Rumus)
 
-In entity manager it's possible to define script (formula) for specific entity type. This script will be executed every time before record is saved. 
-It provides an ability to automatically set specific fields (attributes) with values derived from calculation.
+Pada entity manager dimungkinkan untuk mendefinisikan script (rumus) untuk tipe entitas tertentu. Script ini akan dieksekusi setiap saat sebelum rekaman disimpan.
+Ini menyediakan kemampuan untuk secara otomatis mengatur bidang tertentu (atribut) dengan nilai yang berasal dari perhitungan.
 
-To edit formula follow Administration > Entity Manager > dropdown menu at the right on the row of needed entity > Formula.
+Untuk mengedit rumus ikuti menu Administrasi> Manajer Entitas> tarik-ulur di sebelah kanan pada deretan entitas yang dibutuhkan> Rumus.
 
-You also might need to set fields, that are supposed to be calculated, Read-only via Entity Manager.
+Anda juga mungkin perlu mengatur bidang, yang seharusnya dihitung, Read-only melalui Manajer Entitas.
 
 
-## Syntax
+## Sintaks
 
-EspoCRM formula is written in the simple language designed specifically for this feature.
+Rumus EspoCRM ditulis dalam bahasa sederhana yang dirancang khusus untuk fitur ini.
 
-There are operators, functions attributes and values that can be used in formula. Separated expressions must be delimited by character `;`.
+Ada operator, fungsi atribut dan nilai yang bisa digunakan dalam rumus. Ekspresi terpisah harus dibatasi oleh karakter `;`.
 
-### Operators
+### Operator
 
-* `=` - assignment.
-* `||` - logical OR,
-* `&&` - logical AND,
-* `!` - logical NOT,
-* `+`- numeric summation,
-* `-` - numeric subtraction,
-* `*` - numeric multiplication,
-* `/` - numeric division,
-* `%` - numeric modulo,
-* `==` - comparison equals,
-* `!=` - comparison not equals,
-* `>` - comparison greater than,
-* `<` - comparison less than,
-* `>=` - comparison greater than or equals,
-* `<=` - comparison less than or equals.
+* `=` - penempatan.
+* `||` - logika ATAU,
+* `&&` - logika DAN,
+* `!` - logika TIDAK,
+* `+`- penjumlahan numerik,
+* `-` - pengurangan numerik,
+* `*` - perkalian numerik,
+* `/` - divisi numerik,
+* `%` - modul numerik,
+* `==` - perbandingan sama dengan,
+* `!=` - perbandingan tidak sama dengan,
+* `>` - perbandingan lebih besar dari,
+* `<` - perbandingan lebih kurang dari,
+* `>=` - perbandingan lebih besar dari atau sama dengan,
+* `<=` - perbandingan kurang dari atau sama dengan.
 
-Priority of operators:
+Prioritas operator:
 * `=`;
 * `||`, `&&`;
 * `==`, `!=`, `>`, `<`, `>=`, `<=`;
 * `+`, `-`;
 * `*`, `/`, `%`.
 
-### Attributes
+### Atribut
 
-Attributes represent field values of the target entity. You can insert available attributes by clicking on the plus button.
+Atribut mewakili nilai bidang dari entitas target. Anda bisa memasukkan atribut yang tersedia dengan mengklik tombol plus.
 
-It's possible to access attributes of related entities with the following format `linkName.attributeName`.
+Ini memungkinkan mengakses atribut entitas terkait dengan format berikut `linkName.attributeName`.
 
 
-### Functions
+### Fungsi
 
-Format of function use: `groupName\functionName(argument1, argument2, ..., argumentN)`.
+Format fungsi yang digunakan: `groupName\functionName(argument1, argument2, ..., argumentN)`.
 
-Out-of-the-box functions are listed below.
+Fungsi yang tidak biasa digunakan tercantum di bawah ini.
 
 #### ifThenElse
-`ifThenElse(CONDITION, CONSEQUENT, ALTERNATIVE)` If CONDITION is met then do CONSEQUENT. If not -- then do ALTERNATIVE.
+`ifThenElse(CONDITION, CONSEQUENT, ALTERNATIVE)` Jika CONDITION terpenuhi maka lakukan CONSEQUENT. Jika tidak -- maka lakukan ALTERNATIVE.
 
 #### ifThen
-`ifThen(CONDITION, CONSEQUENT)` If CONDITION is met then do CONSEQUENT. If not -- do nothing.
+`ifThen(CONDITION, CONSEQUENT)` Jika CONDITION terpenuhi maka lakukan CONSEQUENT. Jika tidak - tidak melakukan apapun.
 
 #### string\concatenate(
-`string\concatenate(STRING_1, STRING_2)` Concatenates two or more strings.
+`string\concatenate(STRING_1, STRING_2)` Menyatukan dua atau lebih string.
 
 #### string\substring
-`string\substring(STRING, START, LENGTH)`  Extracts the characters from a STRING by START position and LENGTH.
+`string\substring(STRING, START, LENGTH)`  Ekstrak karakter dari STRING pada posisi START dan LENGTH.
 
-If LENGTH is omitted, the substring starting from START until the end of the STRING will be returned.
+Jika LENGTH dihilangkan, substring mulai dari START sampai akhir STRING akan dikembalikan.
 
-If LENGTH is negative, then that many characters will be omitted from the end of STRING.
+Jika LENGTH negatif, maka banyak karakter akan dihilangkan dari akhir STRING.
 
 #### string\\trim
-`string\trim(STRING)` Strips whitespace from the beginning and end of STRING.
+`string\trim(STRING)` Strips whitespace dari awal dan akhir STRING.
 
 #### string\\lowerCase
-`string\lowerCase(STRING)` Converts letters to lower case. (since version 5.0.0)
+`string\lowerCase(STRING)` Mengonversi huruf ke huruf kecil. (sejak versi 5.0.0)
 
 #### string\\upperCase
-`string\upperCase(STRING)` Converts letters to upper case. (since version 5.0.0)
+`string\upperCase(STRING)` Mengonversi huruf ke huruf besar. (sejak versi 5.0.0))
 
 #### datetime\\today
-`datetime\today()` Returns today's date.
+`datetime\today()` Mengembalikan tanggal hari ini.
 
 #### datetime\now
-`datetime\now()` Returns current datetime.
+`datetime\now()` Mengembalikan waktu sekarang.
 
 #### datetime\format
-`datetime\format(VALUE, [TIMEZONE], [FORMAT])` Converts date or datetime VALUE into string formatted according to application settings. TIMEZONE and FORMAT can be omitted. If TIMEZONE is omitted then default time zone will be used. If FORMAT is omitted then default format will be used.
+`datetime\format(VALUE, [TIMEZONE], [FORMAT])` Mengonversi tanggal atau batas waktu VALUE menjadi string yang diformat sesuai dengan pengaturan aplikasi. TIMEZONE dan FORMAT dapat dihilangkan. Jika TIMEZONE dihilangkan maka zona waktu default akan digunakan. Jika FORMAT dihilangkan maka format default akan digunakan.
 
 #### datetime\date
-`datetime\date(VALUE, [TIMEZONE])` Returns date of the month (1-31). `0` if VALUE is empty. If TIMEZONE is omitted then system timezone is used. (since version 4.7.0)
+`datetime\date(VALUE, [TIMEZONE])` Mengembalikan tanggal setiap bulan (1-31). `0` jika VALUE kosong. Jika TIMEZONE dihilangkan maka zona waktu sistem digunakan. (sejak versi 4.7.0)
 
 #### datetime\month
-`datetime\month(VALUE, [TIMEZONE])` Returns month (1-12). `0` if VALUE is empty. If TIMEZONE is omitted then system timezone is used. (since version 4.7.0)
+`datetime\month(VALUE, [TIMEZONE])` Mengembalikan bulan (1-12). `0` jika VALUE kosong. Jika TIMEZONE dihilangkan maka zona waktu sistem digunakan. (sejak versi 4.7.0)
 
 #### datetime\year
-`datetime\year(VALUE, [TIMEZONE])` Returns year. `0` if VALUE is empty. If TIMEZONE is omitted then system timezone is used. (since version 4.7.0)
+`datetime\year(VALUE, [TIMEZONE])` Mengembalikan tahun. `0` jika VALUE kosong. Jika TIMEZONE dihilangkan maka zona waktu sistem digunakan. (sejak versi 4.7.0)
 
 #### datetime\hour
-`datetime\hour(VALUE, [TIMEZONE])` Returns hour (0-23). `-1` if VALUE is empty. If TIMEZONE is omitted then system timezone is used. (since version 4.7.0)
+`datetime\hour(VALUE, [TIMEZONE])` Mengembalikan jam (0-23). `-1` jika VALUE kosong. Jika TIMEZONE dihilangkan maka zona waktu sistem digunakan. (sejak versi 4.7.0)
 
 #### datetime\minute
-`datetime\minute(VALUE, [TIMEZONE])` Returns minute (0-59). `-1` if VALUE is empty. If TIMEZONE is omitted then system timezone is used. (since version 4.7.0)
+`datetime\minute(VALUE, [TIMEZONE])` Mengembalikan menit (0-59). `-1` jika VALUE kosong. Jika TIMEZONE dihilangkan maka zona waktu sistem digunakan. (sejak versi 4.7.0)
 
 #### datetime\dayOfWeek
-`datetime\dayOfWeek(VALUE, [TIMEZONE])` Returns day of the week (0-6). `-1` if VALUE is empty. `0` - for Sunday. If TIMEZONE is omitted then system timezone is used. (since version 4.7.3)
+`datetime\dayOfWeek(VALUE, [TIMEZONE])` Mengembalikan hari dalam seminggu (0-6). `-1` jika VALUE kosong `0` - untuk hari minggu. Jika TIMEZONE dihilangkan maka zona waktu sistem digunakan. (sejak versi 4.7.3)
 
 #### datetime\diff
-`datetime\diff(VALUE_1, VALUE_2, INTERVAL_TYPE)` Returns difference between two dates or datetimes. INTERVAL_TYPE can be 'years', 'months', 'days', 'hours', 'minutes'. Returns `null` if failure. Result will be negative if VALUE_1 < VALUE_2.
+`datetime\diff(VALUE_1, VALUE_2, INTERVAL_TYPE)` Mengembalikan perbedaan antara dua tanggal atau datetimes. INTERVAL_TYPE dapat 'tahun', 'bulan', 'hari', 'jam', 'menit'. Kembalikan `null` jika gagal. Hasilnya akan negatif jika VALUE_1 < VALUE_2.
 
 #### datetime\addMinutes
-`datetime\addMinutes(VALUE, MINUTES)` Adds MINUTES to datetime VALUE. MINUTES can be negative.
+`datetime\addMinutes(VALUE, MINUTES)` Menambah MINUTES ke nilai VALUE datanya. MINUTES bisa negatif.
 
 #### datetime\addHours
-`datetime\addHours(VALUE, HOURS)` Adds HOURS to datetime VALUE. HOURS can be negative.
+`datetime\addHours(VALUE, HOURS)` Menambahkan JAM ke VALUE datetime. JAM bisa negatif.
 
 #### datetime\addDays
-`datetime\addDays(VALUE, DAYS)` Adds DAYS to date or datetime VALUE. DAYS can be negative.
+`datetime\addDays(VALUE, DAYS)` Menambahkan DAYS ke tanggal atau datetime VALUE. HARI bisa negatif.
 
 #### datetime\addWeeks
-`datetime\addWeeks(VALUE, WEEKS)` Adds WEEKS to date or datetime VALUE. WEEKS can be negative.
+`datetime\addWeeks(VALUE, WEEKS)` Menambahkan WEEKS sampai tanggal atau datetime VALUE. MINGGU bisa negatif.
 
 #### datetime\addMonths
-`datetime\addMonths(VALUE, MONTHS)` Adds MONTHS to date or datetime VALUE. MONTHS can be negative.
+`datetime\addMonths(VALUE, MONTHS)` Menambahkan BULAN ke tanggal atau datetime VALUE. BULAN bisa jadi negatif.
 
 #### datetime\addYears
-`datetime\addYears(VALUE, YEARS)` Adds YEARS to date or datetime VALUE. YEARS can be negative.
+`datetime\addYears(VALUE, YEARS)` Menambahkan YEARS to date atau datetime VALUE. TAHUN bisa negatif
 
 #### datetime\closest
-`datetime\closest(VALUE, TYPE, TARGET, [IS_PAST], [TIMEZONE])` Returns closest date or datetime to VALUE based on passed arguments. (since version 5.0.0)
+`datetime\closest(VALUE, TYPE, TARGET, [IS_PAST], [TIMEZONE])` Mengembalikan tanggal terdekat atau datetime ke VALUE berdasarkan argumen yang diajukan. (sejak versi 5.0.0)
 
-TYPE can be one of the following values: 'time', 'minute', 'hour', 'date', 'month', 'dayOfWeek'. TARGET is an integer value or a string value. IS_PAST means to find closest in the past. If TIMEZONE is omitted then default timezone is used.
+JENIS bisa menjadi salah satu dari nilai berikut: 'waktu', 'menit', 'jam', 'tanggal', 'bulan', 'dayOfWeek'. TARGET adalah nilai integer atau nilai string. IS_PAST berarti menemukan yang terdekat di masa lalu. Jika TIMEZONE dihilangkan maka zona waktu default digunakan.
 
-Examples:
+Contoh:
 
-`datetime\closest(datetime\now(), 'time', '20:00')` Will return the closest datetime value in the future with 20:00 time.
+`datetime\closest(datetime\now(), 'time', '20:00')` Akan mengembalikan nilai datetime terdekat di masa depan dengan waktu 20:00.
 
-`datetime\closest('2017-11-20', 'date', 1, true)` Will return `2017-11-01`, the first day of the month. 
+`datetime\closest('2017-11-20', 'date', 1, true)` Akan kembali ke`2017-11-01`, hari pertama setiap bulannya. 
 
-`datetime\closest(datetime\now(), 'dayOfWeek', 1)` Will return the next Monday (the beginning of the day). 
+`datetime\closest(datetime\now(), 'dayOfWeek', 1)` Akan kembali ke Senin depan (awal hari).
 
 #### number\format
-`number\format(VALUE, [DECIMALS], [DECIMAL_MARK], [THOUSAND_SEPARATOR])` Converts numeric VALUE into string formatted according to a specific format or default application settings. If DECIMALS, DECIMAL_MARK OR THOUSAND_SEPARATOR then system defaults are used.
+`number\format(VALUE, [DECIMALS], [DECIMAL_MARK], [THOUSAND_SEPARATOR])` Mengubah nilai numerik menjadi string yang diformat sesuai dengan format atau pengaturan aplikasi default tertentu. Jika DECIMALS, DECIMAL_MARK ATAU THOUSAND_SEPARATOR maka sistem default digunakan.
 
-Examples:
+Contoh:
 
-`number\format(2.666667, 2)` - results 2.67;
+`number\format(2.666667, 2)` - hasilnya 2.67;
 
-`number\format(1000, 2)` - results 1,000.00;
+`number\format(1000, 2)` - hasilnya 1,000.00;
 
-`number\format(10.1, 0)` - results 10.
+`number\format(10.1, 0)` - hasilnya 10.
 
 
 #### number\abs
-`number\abs(VALUE)` Absolute value. Returns null if VALUE is not numeric.
+`number\abs(VALUE)` Nilai mutlak. Mengembalikan null jika VALUE tidak numerik.
 
 #### number\round
-`number\round(VALUE, PRECISION)` Returns the rounded value of VALUE to specified PRECISION (number of digits after the decimal point). PRECISION can also be negative or zero (default).
+`number\round(VALUE, PRECISION)` Mengembalikan nilai pembulatan VALUE ke PRECISION yang ditentukan (jumlah digit setelah titik desimal). KETEPATAN juga bisa negatif atau nol (default).
 
 #### number\floor
-`number\floor(VALUE)` Returns the next lowest integer value by rounding down value if necessary. (since version 4.9.0)
+`number\floor(VALUE)` Mengembalikan nilai integer terendah berikutnya dengan membulatkan nilai jika perlu. (sejak versi 4.9.0)
 
 #### number\ceil
-`number\ceil(VALUE)` Returns the next highest integer value by rounding up value if necessary. (since version 4.9.0)
+`number\ceil(VALUE)` Mengembalikan nilai integer tertinggi berikutnya dengan nilai pembulatan jika perlu. (sejak versi 4.9.0)
 
 #### entity\isNew
-`entity\isNew()` Returns TRUE if the entity is new (being created) and FALSE if not (being updated).
+`entity\isNew()` Mengembalikan TRUE jika entitas itu baru (dibuat) dan FALSE jika tidak (sedang diperbarui).
 
 #### entity\\isAttributeChanged
-`entity\isAttributeChanged(ATTRIBUTE)` Returns TRUE if ATTRIBUTE of the entity was changed.
+`entity\isAttributeChanged(ATTRIBUTE)` Mengembalikan TRUE jika ATTRIBUTE entitas diubah.
 
-Example:
+Contoh:
 
 `entity\isAttributeChanged('status')`
 
 #### entity\isAttributeNotChanged
-`entity\isAttributeNotChanged(ATTRIBUTE)` Return TRUE if ATTRIBUTE of the entity was not changed.
+`entity\isAttributeNotChanged(ATTRIBUTE)` Mengembalikan TRUE jika ATTRIBUTE entitas tidak berubah.
 
 #### entity\attributeFetched
-`entity\attributeFetched(ATTRIBUTE)` Attribute that was set when target entity was fetched from database. Before it was modified.
+`entity\attributeFetched(ATTRIBUTE)` Atribut yang ditetapkan saat entitas target diambil dari database. Sebelum dimodifikasi.
 
-Example:
+Contoh:
 
 `entity\isAttributeChanged('assignedUserId')`
 
 #### entity\addLinkMultipleId
-`entity\addLinkMultipleId(LINK, ID)` Adds ID to Link Multiple field. For example, add 'someTeamId' to 'teams' field. 
+`entity\addLinkMultipleId(LINK, ID)` Menambahkan ID ke bidang Tautan Multiple. Misalnya, tambahkan bidang 'someTeamId' ke 'tim'. 
 
-`entity\addLinkMultipleId(LINK, ID_LIST)` Adds the list of ids. (since version 4.8.3)
+`entity\addLinkMultipleId(LINK, ID_LIST)` Menambahkan daftar id. (sejak versi 4.8.3)
 
 #### entity\hasLinkMultipleId
-`entity\hasLinkMultipleId(LINK, ID)` Checks whether Link Multiple field has specific ID.
+`entity\hasLinkMultipleId(LINK, ID)` Cek apakah bidang Tautan Multiple memiliki ID khusus.
 
 #### entity\removeLinkMultipleId
-`entity\removeLinkMultipleId(LINK, ID)` Removes a specific ID from the Link Multiple field.
+`entity\removeLinkMultipleId(LINK, ID)` Menghapus ID khusus dari bidang Tautan Multiple.
 
 #### entity\isRelated
-`entity\isRelated(LINK, ID)` Checks whether target entity is related with another entity represented by LINK and ID.
+`entity\isRelated(LINK, ID)` Cek apakah entitas target terkait dengan entitas lain yang ditunjukkan oleh LINK dan ID.
 
 #### env\userAttribute
-`env\userAttribute(ATTRIBUTE)` Returns ATTRIBUTE of the current user.
+`env\userAttribute(ATTRIBUTE)` Mengembalikan ATTRIBUTE pengguna saat ini.
 
 #### list
-`list(VALUE-1, ... VALUE-N)` Returns array. (since version 4.7.0)
+`list(VALUE-1, ... VALUE-N)` Mengembalikan array. (sejak versi 4.7.0)
 
 #### array\includes
-`array\includes(LIST, VALUE)` Returns true if LIST contains VALUE. Can be used for Array and Multi-Enum fields. (since version 4.7.0)
+`array\includes(LIST, VALUE)` Mengembalikan nilai true jika LIST berisi VALUE. Bisa digunakan untuk bidang Array dan Multi-Enum. (sejak versi 4.7.0)
 
 #### array\push
-`array\push(LIST, VALUE1 [, VALUE2 ...])` Adds one or more elements to the end of an array and returns the new array. (since version 5.0.0)
+`array\push(LIST, VALUE1 [, VALUE2 ...])` Menambahkan satu atau lebih elemen ke akhir array dan mengembalikan array baru. (sejak versi 5.0.0)
 
 #### array\length
-`array\length(LIST)` Returns count of elements in LIST. (since version 4.8.1)
+`array\length(LIST)` Mengembalikan hitungan elemen dalam DAFTAR. (sejak versi 4.8.1)
 
 
-### Values
+### Nilai
 
-* Strings. E.g. 'some string';
-* Integer numbers. E.g. 1, 100, 40300.
-* Float numbers. E.g. 5.2.
+* Strings. Misalnya 'some string';
+* Integer numbers. Misalnya 1, 100, 40300.
+* Float numbers. Misalnya 5.2.
 
-### Variables
+### Variabel
 
-It's possible to define custom variables in formula.
+Memungkinkan untuk menentukan variabel khusus dalam formula.
 ```
 $someVariableName = 'Test';
 description = $test;
 ```
 
 
-## Examples
+## Contoh
 
 ```
 ifThen(
@@ -262,6 +262,6 @@ ifThenElse(
 
 ```
 
-## Using formula in Workflows
+## Menggunakan rumus dalam Alur Kerja
 
-You can utilize formula in workflow conditions and actions. See [workflows documentation](workflows.md) for more information.
+Anda dapat memanfaatkan rumus dalam kondisi lur kerja dan tindakan. Lihat [dokumentasi alur kerja](workflows.md) untuk informasi lebih lanjut.
