@@ -1,99 +1,99 @@
 # Backup and Restore
 
-## How to backup EspoCRM manually
+## Bagaimana cara membackup EspoCRM secara manual
 
-EspoCRM consists of files and database data. All these data are needed in order to create a full backup of EspoCRM. Here are instructions on how to do it on Ubuntu server with MySQL.
+EspoCRM terdiri dari file dan data database. Semua data ini dibutuhkan untuk membuat salinan lengkap EspoCRM. Berikut adalah petunjuk cara melakukannya di server Ubuntu dengan MySQL.
 
-### Step 1. Backup files
+### Langkah 1. Backup file
 
-Create an archive of the directory content of installed EspoCRM. For Ubuntu the default path is `/var/www/html`. You may use this command:
+Buat arsip isi direktori EspoCRM yang terinstal. Untuk Ubuntu jalur defaultnya adalah `/var/www/html`. Anda bisa menggunakan perintah ini:
 
 ```bash
 tar -czf "files.tar.gz" -C /var/www/html .
 ```
 
-### Step 2. Backup database
+### Langkah 2. Backup database
 
-To backup all your data, you have to know the database name and access credentials. You can find the database name in the configuration file `/ESPOCRM_DIRECTORY/data/config.php` under section `database`. You can use this command to backup your database:
+Untuk mencadangkan semua data Anda, Anda harus mengetahui nama database dan kredensial akses. Anda bisa menemukan nama database di file konfigurasi `/ESPOCRM_DIRECTORY/data/config.php` di bawah bagian `database`. Anda bisa menggunakan perintah ini untuk membuat backup database Anda:
 
 ```bash
 mysqldump --user=YOUR_USER --password=YOUR_PASSWORD YOUR_DATABASE_NAME > "db.sql"
 ```
 
-### Step 3. Copy the backup
+### Langkah 3. Salin backup
 
-That's all. Now, you have to copy the created backup to a safe place.
+Itu saja. Sekarang, Anda harus menyalin cadangan yang dibuat ke tempat yang aman.
 
 
-## How to backup EspoCRM with a script
+## Bagaimana cara membackup EspoCRM dengan skrip
 
-You can use a script to backup all needed data. Login via SSH and run the commands (tested on Ubuntu server).
+Anda bisa menggunakan script untuk membackup semua data yang dibutuhkan. Login via SSH dan jalankan perintah (tested on Ubuntu server).
 
-### Download a script
+### Unduh skrip
 
 ```bash
 wget https://raw.githubusercontent.com/espocrm/documentation/master/_static/scripts/backup.sh
 ```
 
-### Run the script
+### Jalankan skrip
 
 ```bash
 bash ./backup.sh PATH_TO_ESPOCRM BACKUP_PATH
 ```
-where
- * `PATH_TO_ESPOCRM` is a path to installed EspoCRM directory.
- * `BACKUP_PATH` is a path to backup directory.
+dimana
+ * `PATH_TO_ESPOCRM` adalah jalur untuk menginstal direktori EspoCRM.
+ * `BACKUP_PATH` adalah path ke direktori backup.
 
-For Ubuntu server it is:
+Untuk server Ubuntu adalah:
 
 ```bash
 bash ./backup.sh /var/www/html /opt/backups
 ```
 
-Note: If your MySQL user doesn't have needed rights to dump your database, you will be promted to enter credentials of another MySQL user.
+Catatan: Jika pengguna MySQL Anda tidak memiliki hak yang diperlukan untuk membuang database Anda, Anda akan diminta untuk memasukkan kredensial pengguna MySQL lainnya.
 
-After successful creation, you will get a path to the created backup.
+Setelah sukses, Anda akan mendapatkan path menuju backup yang telah dibuat.
 
-## Restore EspoCRM from a backup
+## Mengembalikan EspoCRM dari backup
 
-You can restore EspoCRM from the backup created as described above.
+Anda dapat mengembalikan EspoCRM dari cadangan yang dibuat seperti dijelaskan di atas.
 
-### Step 1. Unarchive backup files
+### Langkah 1. Buka arsip file backup
 
-To unarchive files, you can use Archive Manager or run the below command. Files need to be placed in the web-server directory.
+Untuk mmebuka arsip file, Anda dapat menggunakan Manajer Arsip atau menjalankan perintah di bawah ini. File harus ditempatkan di direktori web-server.
 
 ```bash
 tar -xzf "files.tar.gz" -C /var/www/html
 ```
-where:
- * `/var/www/html` is a web-server directory.
+dimana:
+ * `/var/www/html` adalah direktori web-server.
 
-### Step 2. Set required permissions
+### Langkah 2. Tetapkan izin yang diperlukan
 
-The files should be owned by a web-server user and have correct permissions. Please set required permissions by following this instruction: [www.espocrm.com/documentation/administration/server-configuration/#user-content-required-permissions-for-unix-based-systems](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-required-permissions-for-unix-based-systems).
+File harus dimiliki oleh pengguna web-server dan memiliki izin yang benar. Mohon tetapkan izin yang diperlukan dengan mengikuti instruksi ini: [www.espocrm.com/documentation/administration/server-configuration/#user-content-required-permissions-for-unix-based-systems](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-required-permissions-for-unix-based-systems).
 
-### Step 3. Import database dump
+### Langkah 3. Impor database dump
 
-Database dump should be imported to the same database with the same user credentials, otherwise the correction should be made in the configuration file `ESPOCRM_DIRECTORY/data/config.php`. To import your database from the dump, run the command below in a terminal:
+Database dump harus diimpor ke database yang sama dengan kredensial pengguna yang sama, jika tidak, koreksi harus dilakukan pada file konfigurasi `ESPOCRM_DIRECTORY/data/config.php`. Untuk mengimpor database Anda dari dump, jalankan perintah di bawah ini di terminal:
 
 ```bash
 mysql --user=YOUR_DATABASE_USER --password=YOUR_DATABASE_PASSWORD YOUR_DATABASE_NAME < db.sql
 ```
 
-### Step 4. Check/configure crontab
+### Langkah 4. Periksa/konfigurasikan crontab
 
-Check if your crontab is configured properly. Run the command below and check if a path to EspoCRM is correct:
-
-```bash
-sudo crontab -l -u www-data
-```
-where:
- * `www-data` is your web-server user.
-
-If you have to make any changes, use this command:
+Periksa apakah crontab Anda dikonfigurasi dengan benar. Jalankan perintah di bawah ini dan periksa apakah path ke EspoCRM benar:
 
 ```bash
 sudo crontab -l -u www-data
 ```
+dimana:
+ * `www-data` adalah pengguna web-server Anda.
 
-More details about configuring crontab for EspoCRM is described here [www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab).
+Jika Anda harus membuat perubahan, gunakan perintah ini:
+
+```bash
+sudo crontab -l -u www-data
+```
+
+Rincian lebih lanjut tentang mengonfigurasi crontab untuk EspoCRM dijelaskan di sini [www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab](https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab).
