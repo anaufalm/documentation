@@ -1,10 +1,10 @@
-# Nginx server configuration for EspoCRM
+# Konfigurasi server Nginx untuk EspoCRM
 
-These instructions are supplementary to the [Server Configuration](server-configuration.md) guideline. Please note that all configuration settings listed here are made on Ubuntu server.
+Petunjuk ini sudah ditambahkan pada panduan [Konfigurasi Server](server-configuration.md). Harap dicatat bahwa semua pengaturan konfigurasi yang tercantum di sini dibuat pada server Ubuntu.
 
-## PHP requirements
+## Persyaratan PHP
 
-To install all necessary libraries, run these commands in a terminal:
+Untuk menginstal semua perpustakaan yang diperlukan, jalankan command ini dalam terminal:
 
 ```
 sudo apt-get update
@@ -13,13 +13,13 @@ sudo phpenmod mcrypt imap mbstring
 sudo service nginx restart
 ```
 
-## Fixing the issue “API Error: EspoCRM API is unavailable”:
+## Memperbaiki masalah “API Error: EspoCRM API is unavailable”:
 
-Take only necessary steps. After each step check if the issue is solved.
+Ikuti langkah berikut. Periksa apakah masalah terpecahkan setelah langkah ini diikuti.
 
-### 1. Enable rewrite rules in Nginx server
+### 1. Aktifkan dukungan "mod_rewrite" di Nginx
 
-Add this code to your Nginx server block config file (/etc/nginx/sites-available/YOUR_SITE) inside “server” block:
+Untuk mengaktifkan "mod_rewrite", jalankan command ini dalam terminal:
 
 ```
 server {   
@@ -86,37 +86,37 @@ server {
 }
 ```
 
-If you don’t have this file, you have to create it. For this open a terminal and run the command:
+Jika Anda tidak memiliki file ini, Anda harus membuatnya. Caranya bukalah terminal dan jalankan command berikut:
 
 ```
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/espocrm.conf
 ```
 
-And add the code listed above. For more information on how to configure a new Virtual Host on Nginx, please read this [ guideline](nginx-virtual-host.md).
+Dan tambahkan kode yang tercantum di atas. Untuk selengkapnya tentang cara mengkonfigurasi Virtual Host baru pada Nginx, silahkan baca ini [panduan](nginx-virtual-host.md).
 
-Run this command in a terminal to check if everything is fine:
+Jalankan command berikut dalam terminal untuk memeriksa apakah semuanya baik-baik saja:
 
 ```
 sudo nginx -t
 ```
 
-If so, run the command to restart nginx server:
+Jika sudah, jalankan command untuk me-restart nginx server:
 
 ```
 sudo service nginx restart
 ```
 
-### 2. Add RewriteBase path
+### 2. Tambahkan path RewriteBase
 
-Open a file /ESPOCRM_DIRECTORY/api/v1/.htaccess and replace the following line:
+Buka file /ESPOCRM_DIRECTORY/api/v1/.htaccess dan ganti dengan baris kode berikut:
 
 ```
 # RewriteBase /
 ```
-with 
+dengan 
 
 ```
 RewriteBase /REQUEST_URI/api/v1/
 ```
 
-where REQUEST_URI is a part of URL, e.g. for “http://example.com/espocrm/”, REQUEST_URI is “espocrm”.
+dimana REQUEST_URI adalah bagian dari URL, contohnya untuk “http://example.com/espocrm/”, REQUEST_URI-nya adalah “espocrm”.
