@@ -1,71 +1,71 @@
-# Installation
+# Instalasi
 
-### Requirements
-EspoCRM runs on the most hosting providers. Requirements include the following:
+### Persyaratan
+EspoCRM berjalan pada penyedia layanan hosting. Persyaratannya meliputi:
 
-* PHP 5.5 or latest version of PHP with enabled pdo, json, GD library, mcrypt extensions (usually enabled by default);
-* MySQL 5.1 or higher.
+* PHP 5.5 atau versi terbaru dari PHP dengan ekstensi aktif pdo, json, GD library mcrypt (biasanya diaktifkan secara default);
+* MySQL 5.1 atau lebih tinggi.
 
-See [Server Configuration](server-configuration.md) article for more information.
+Lihat artikel [Konfigurasi Server](server-configuration.md) untuk informasi lebih lanjut.
 
-### 1. Download the EspoCRM installation package
-To get the latest version of EspoCRM follow [download page](http://www.espocrm.com/download/) link.
+### 1. Unduh paket instalasi EspoCRM
+Untuk mendapatkan versi terbaru dari EspoCRM ikuti tautan [halaman unduh](http://www.espocrm.com/download/).
 
-### 2. Upload the EspoCRM Files to Your Server
+### 2. Unggah file EspoCRM ke Server Anda
 
-Once the download is complete, upload the package to your web server. 
-To upload it you can use SSH, FTP or the hosting administration panel.
-Extract the archive to your public web server directory (e.g., `public_html`, `www`, etc.).
+Setelah unduhan selesai, unggah paket tersebut ke server web Anda.
+Untuk mengunggah, Anda dapat menggunakan SSH, FTP atau panel administrasi hosting.
+Ekstrak arsip ke direktori server web publik (misalnya, `public_html`, `www`, dll.).
 
-_Note: For FTP, you need to extract the archive before uploading to your web server._
+_Catatan: untuk FTP, Anda perlu mengekstrak Arsip unduhan sebelum mengunggah ke server web Anda._
 
-### 3. Create a MySQL Database for EspoCRM to use
+### 3. Buat Database MySQL yang akan digunakan untuk EspoCRM
 
-Go to your hosting administration panel, or to SSH, and create a new database and user for EspoCRM (e.g., `MySQL Databases` in cPanel).
+Pergi ke panel administrasi hosting Anda, atau ke SSH, dan buat database baru dan pengguna untuk EspoCRM (misalnya, `MySQL database` di cPanel).
 
-### 4. Run EspoCRM installation process
+### 4. Jalankan proses instalasi EspoCRM
 
-Now, open your web browser, and go to the URL with EspoCRM files (e.g., `http://yourdomain.com/espo`).
+Sekarang, buka browser web Anda, dan pergi ke URL file EspoCRM (misalnya, `http://yourdomain.com/espo`).
 
-If you see this screen, you have a "Permission denied" error. 
-So, you need to execute the displayed command in the terminal via SSH, or set the correct permission. 
-It should be 755 for directories, 644 for files, and 775 for `data` directory. 
-Also make sure that you have the correct _owner_ and _group_.
+Jika Anda melihat layar ini, Anda memiliki eror "Permission denied".
+Maka, Anda perlu menjalankan command tampilan di terminal melalui SSH, atau mengatur izin yang benar.
+Harusnya 755 untuk direktori, 644 untuk file, dan 775 untuk direktori `data`.
+Pastikan juga bahwa Anda memiliki _owner_ dan _group_ yang benar.
 
 ![1](../_static/images/administration/installation/1.png)
 
-If you see the following screen, the permission is correct and you can start installing EspoCRM.
+Jika Anda melihat layar berikut, izin Anda benar dan Anda dapat memulai menginstal EspoCRM.
 
 ![2](../_static/images/administration/installation/2.png)
 
-On this page, you can read and accept the License Agreement.
+Pada Halaman ini, Anda dapat membaca dan menyetujui Perjanjian Lisensi.
 
 ![3](../_static/images/administration/installation/3.png)
 
-Enter the details for your newly created MySQL database.
+Masukkan rincian untuk database MySQL yang baru Anda buat.
 
 ![4](../_static/images/administration/installation/4.png)
 
-Enter the user name and password of Administrator EspoCRM.
+Masukkan nama pengguna dan sandi Administrator EspoCRM.
 
 ![5](../_static/images/administration/installation/5.png)
 
-On this page you can set the default settings of EspoCRM, such as date and time format, timezone, currency and others.
+Pada Halaman ini Anda dapat menetapkan pengaturan default EspoCRM, seperti format tanggal dan waktu, zona waktu, mata uang, dan lain-lain.
 
 ![6](../_static/images/administration/installation/6.png)
 
-Enter SMTP settings for outgoing emails, if you want to have the ability to send emails. 
-This step can be skipped by clicking the _Next_ button. 
-All of these options can be added/changed in EspoCRM after installation.
+Masukkan Pengaturan SMTP untuk surel keluar, jika Anda menginginkan untuk mengirim surel.
+Langkah ini dapat dilewatkan dengan mengeklik tombol _Selanjutnya_.
+Semua pilihan ini dapat ditambahkan/berubah di EspoCRM setelah instalasi.
 
 ![7](../_static/images/administration/installation/7.png)
 
-Congratulation! Installation is complete. 
-The last thing to setup Scheduled Tasks to be run by your system. It can be done by running `crontab -e` in linux cli and in _Windows Tasks Scheduler_ in Windows systems.
+Selamat! Instalasi sudah selesai.
+Hal terakhir adalah aturlah Tugas Terjadwal agar dapat dijalankan oleh sistem Anda. Hal ini dapat dilakukan dengan menjalankan `crontab -e` di linux cli dan _Windows Tasks Scheduler_ di sistem Windows.
 
 ![8](../_static/images/administration/installation/8.png)
 
-We hope you will enjoy working in EspoCRM.
+Kami berharap Anda dapat menikmati pekerjaan Anda di EspoCRM.
 
 
 
