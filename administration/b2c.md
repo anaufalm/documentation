@@ -1,4 +1,4 @@
-#Konfigurasi EspoCRM untuk B2C (Business-to-Client)
+# Konfigurasi EspoCRM untuk B2C (Business-to-Client)
 
 Secara default EspoCRM dikonfigurasi untuk menggunakan bisnis B2B. Tetapi Anda dapat mengatur B2C dengan mudah.
 
