@@ -1,10 +1,11 @@
-# Apache server configuration for EspoCRM
+# Konfigurasi server Apache untuk EspoCRM
 
-These instructions are supplementary to the [Server Configuration](server-configuration.md) guideline. Please note that all configuration settings listed here are made on Ubuntu server.
+Petunjuk ini sudah ditambahkan pada panduan [Konfigurasi Server](server-configuration.md). Harap dicatat bahwa semua pengaturan konfigurasi yang tercantum di sini dibuat pada server Ubuntu.
 
-## PHP requirements
 
-To install all necessary libraries, run these commands in a terminal:
+## Persyaratan PHP
+
+Untuk menginstal semua perpustakaan yang diperlukan, jalankan command ini dalam terminal:
 
 ```
 sudo apt-get update
@@ -13,22 +14,22 @@ sudo phpenmod mcrypt imap mbstring
 sudo service apache2 restart
 ```
 
-## Fixing the issue “API Error: EspoCRM API is unavailable”:
+## Memperbaiki masalah “API Error: EspoCRM API is unavailable”:
 
-Take only necessary steps. After each step check if the issue is solved.
+Ikuti langkah berikut. Periksa apakah masalah terpecahkan setelah langkah ini diikuti.
 
-### 1. Enable “mod_rewrite” support in Apache
+### 1. Aktifkan dukungan "mod_rewrite" di Apache
 
-To enable “mod_rewrite,” run these commands in a terminal:
+Untuk mengaktifkan "mod_rewrite", jalankan command ini dalam terminal:
 
 ```
 sudo a2enmod rewrite
 sudo service apache2 restart
 ```
 
-### 2. Enable .htaccess support
+### 2. Aktifkan dukungan .htaccess
 
-To enable .htaccess support, add/edit the Server Configuration Settings /etc/apache2/sites-available/ESPO_VIRTUAL_HOST.conf or /etc/apache2/apache2.conf (/etc/httpd/conf/httpd.conf):
+Untuk mengaktifkan dukungan .htaccess, tambah/ubah Pengaturan Konfigurasi Server /etc/apache2/sites-available/ESPO_VIRTUAL_HOST.conf atau /etc/apache2/apache2.conf (/etc/httpd/conf/httpd.conf):
 
 ```
 <Directory /PATH_TO_ESPO/>
@@ -36,34 +37,34 @@ AllowOverride All
 </Directory>
 ```
 
-Afterward, run this command in a terminal:
+Setelah itu, jalankan command berikut dalam terminal:
 
 ```
 sudo service apache2 restart
 ```
 
-### 3. Add RewriteBase path
+### 3. Tambahkan path RewriteBase
 
-Open a file /ESPOCRM_DIRECTORY/api/v1/.htaccess and replace the following line:
+Buka file /ESPOCRM_DIRECTORY/api/v1/.htaccess dan ganti dengan baris berikut:
 
 ```
 # RewriteBase /
 ```
 
-with
+dengan
 
 ```
 RewriteBase /REQUEST_URI/api/v1/
 ```
 
-where REQUEST_URI is a part of URL, e.g. for “http://example.com/espocrm/”, REQUEST_URI is “espocrm”.
+dimana REQUEST_URI adalah bagian dari URL, contohnya untuk “http://example.com/espocrm/”, REQUEST_URI-nya adalah “espocrm”.
 
 
-## Enable HTTP AUTHORIZATION support (only for FastCGI).
+## Aktifkan dukungan HTTP AUTHORIZATION (hanya untuk FastCGI).
 
-FastCGI does not support HTTP AUTHORIZATION by default. If you use FastCGI, you have to enable it in your VirtualHost or /etc/apache2/apache2.conf (httpd.conf) by adding the following code:
+Secara default FastCGI tidak mendukung HTTP AUTHORIZATION. Jika Anda menggunakan FastCGI, Anda harus mengaktifkannya di VirtualHost Anda atau /etc/apache2/apache2.conf (httpd.conf) dengan menambahkan baris kode berikut:
 
-For Fcgid module:
+Untuk modul Fcgid:
 
 ```
 <IfModule mod_fcgid.c>
@@ -73,7 +74,7 @@ For Fcgid module:
 </IfModule>
 ```
 
-For FastCgi module:
+Untuk modul FastCgi:
 
 ```
 <IfModule mod_fastcgi.c>
@@ -83,7 +84,7 @@ For FastCgi module:
 </IfModule>
 ```
 
-To check which module is currently being used, run this command and find the module:
+Untuk memeriksa modul mana yang saat ini sedang digunakan, jalankan command ini dan temukan modul:
 
 ```
 apache2ctl -M
