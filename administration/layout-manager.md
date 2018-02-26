@@ -1,63 +1,63 @@
-# Layout Manager
+# Manajer Layout
 
-Layout Manager is available in administration panel. Provides an ability to customize appearance of detail, edit, list views as well as search filters and fields for mass-update forms.
+Manajer Layout tersedia di panel administrasi. Menyediakan kemampuan untuk menyesuaikan tampilan detail, edit, daftar tampilan, serta filter pencarian dan kolom untuk formulir pembaruan massal.
 
-## List
+## Daftar
 
-The main layout for the list view. Defines columns and their parameters.
+Layout utama untuk daftar tampilan. Mendefinisikan kolom dan parameternya.
 
-![List](../_static/images/administration/layout-manager/list.png)
+![Daftar](../_static/images/administration/layout-manager/list.png)
 
-Available parameters for columns are listed below.
+Parameter yang tersedia untuk kolom tercantum di bawah ini.
 
-### Width (%)
+### Lebar (%)
 
-Width of column in percent, empty means auto-width.
+Lebar kolom dalam persen, kosong berarti lebar-otomatis.
 
 ### Link
 
-If checked then the field will be displayed as a link to the detail view of the record. Usually used for name fields.
+Jika dicek maka lapangan akan ditampilkan sebagai link ke tampilan detail rekam. Biasanya digunakan untuk bidang nama.
 
-### Not Sortable
+### Tidak Berurut
 
-Disables an ability to sort the column.
+Nonaktifkan kemampuan untuk mengurutkan kolom
 
-### Align
+### Sejajar
 
-Align the column to the left or to the right.
+Mensejajarkan kolom ke kiri atau ke kanan.
 
 ## Detail
 
-The main layout for the detail view and the edit view. Defines panels, rows and cells. Cells contain fields.
+Layout utama untuk tampilan detail dan tampilan edit. Mendefinisikan panel, baris dan sel. Sel berisi bidang.
 
-The row can contain two cells or one cell that is expanded to the full width of the row. To add the row with an expanded cell you need to add the new row and click on a minus sign on any cell.
+Baris bisa berisi dua sel atau satu sel yang diperluas hingga lebarnya memenuhi baris. Untuk menambahkan baris dengan sel yang diperluas Anda perlu menambahkan baris baru dan mengklik tanda minus pada sel apapun.
 
 ![Detail](../_static/images/administration/layout-manager/detail.png)
 
-## List (Small)
+## Daftar (Kecil)
 
-The list layout for relationship panels. Also can be used in other places where it's reasonable to display lists in the narrow view.
+Daftar layout untuk panel hubungan. Juga bisa digunakan di tempat lain yang memungkinkan untuk menampilkan daftar dalam tampilan kecil.
 
-## Detail (Small)
+## Detail (Kecil)
 
-The detail view for quick create, quick view and quick edit forms.
+Tampilan detail untuk buat cepat, tampilan cepat dan mengedit formulir cepat.
 
-## Search Filters
+## Filter Pencarian
 
-The list of fields available in the list view to search by.
+Daftar bidang yang tersedia dalam tampilan daftar untuk pencarian.
 
-## Mass Update
+## Pembaruan Massal
 
-The list of fields availabe in the Mass Update form.
+Daftar bidang yang tersedia dalam pembaruan formulis secara Massal.
 
-## Relationship Panels
+## Panel Hubungan
 
-The list of relationship panels displayed on the detail view at the bottom. Panels can be re-ordered. It's possible to define the color of panel with the Style parameter.
+Daftar panel hubungan ditampilkan pada tampilan bagian bawah detail. Panel bisa diorder ulang. Anda bisa menentukan warna panel dengan parameter _Style_.
 
-## Side Panels
+## Panel Samping
 
-Side panels for Detail, Edit, Detail Small, Edit Small forms. Provides an ability to hide or re-order panels list Activities, History, Tasks and others. Panels can be colorized by the Style parameter.
+Panel samping untuk Detil, Edit, Detail Kecil, Edit formulir Kecil. Menyediakan kemampuan untuk menyembunyikan atau mengorder ulang daftar panel Kegiatan, Sejarah, Tugas dan lain-lain. Panel dapat diwarnai dengan parameter _Style_.
 
-## Additional Layouts
+## Layout Tambahan
 
-Some entity types contain additional layouts: Convert Lead, List for Account.
+Beberapa tipe entitas berisi layout tambahan: Mengubah Lead, Daftar untuk Akun.
