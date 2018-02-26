@@ -49,7 +49,7 @@ Sekarang, masuk ke halaman login dan masukkan kredensial pengguna.
 
 Pengguna telah dikonfirmasi dan dibuat secara otomatis di EspoCRM.
 
-##Petunjuk konfigurasi berdasarkan server Anda:
+## Petunjuk konfigurasi berdasarkan server Anda:
 * [server Direktori Aktif](ldap-authorization-for-ad.md)
 * [server OpenLDAP](ldap-authorization-for-openldap.md)
 
