@@ -1,18 +1,18 @@
-# Maps
+# Peta
 
-## How to show the map based on an address field
+## Bagaimana menampilkan peta berdasarkan bidang alamat
 
-Every Address field has its corresponding Map field. All you need is to put it on Detail layout. It uses Google Maps service.
+Setiap bidang ALamat memiliki bidang Peta yang cocok. Yang Anda butuhkan adalah menaruhnya pada layout Detail. Ini menggunakan layanan Google Maps.
 
 `Administration > Layout Manager > Choose entity (Account, Contact, Lead or custom one) > Detail > Drag & Drop Map field.`
 
-Make the cell wide using the minus sign.
+Buatlah lebar sel dengan tanda minus.
 
-You can also configure the height of your field.
+Anda juga dapat mengkonfigurasi tinggi bidang Anda.
 
 `Administration > Entity Manager > Choose entity > Fields > find the map field and click on it > edit the height and save.`
 
-## Api Key
+## Kunci Api
 
-Since EspoCRM version 4.2.0 you need to specify Api Key to use Google Maps (Administration > Integration > Google Maps).
+Sejak EspoCRM versi 4.2.0 Anda harus menentukan Kunci Api untuk menggunakan Google Maps ((Administration > Integration > Google Maps).
 
