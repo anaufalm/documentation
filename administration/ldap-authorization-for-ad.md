@@ -1,6 +1,6 @@
-# LDAP authorization for Active Directory
+# Otorisasi LDAP untuk Direktori Aktif
 
-Example of configuration LDAP authorization for the Active Directory server. The full guide of configuration LDAP authorization is described [here](ldap-authorization.md).
+Contoh konfigurasi otorisasi LDAP untuk server Direktori Aktif. Panduan lengkap dari konfigurasi otorisasi LDAP dijelaskan [di sini](ldap-authorization.md).
 
 ```
 Host: espo.local
