@@ -1,16 +1,16 @@
-# Configuring a Virtual Host on Nginx for EspoCRM
+# Mengkonfigurasi Virtual Host di Nginx untuk EspoCRM
 
-In this guide, we will show how to configure a virtual host on Nginx for EspoCRM on Ubuntu server.
+Dalam panduan ini, kami akan menunjukkan cara mengkonfigurasi virtual host di Nginx untuk EspoCRM di server Ubuntu.
 
-## Create a server block file
+## Buat file blok server
 
-To create this file, open a terminal and run the command:
+Untuk membuat file ini, buka terminal dan jalankan command:
 
 ```
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/espocrm.conf
 ```
 
-Now, open this file (/etc/nginx/sites-available/espocrm.conf) and modify the code following the format printed below (some settings may be different based on your configuration):
+Sekarang buka file ini (/etc/nginx/sites-available/espocrm.conf) dan ubah kode berikut dengan mengikuti format yang tercetak dibawah ini (beberapa pengaturan mungkin berbeda berdasarkan konfigurasi Anda):
 
 ```
 server {
@@ -89,32 +89,32 @@ server {
 }
 ```
 
-##Enable this server block
+##Aktifkan blok server ini
 
-Create a symbolic link:
+Buat link symbolic:
 
 ```
 sudo ln -s /etc/nginx/sites-available/espocrm.conf /etc/nginx/sites-enabled/
 ````
 
-Run this command to check if everything is fine:
+Jalankan command ini untuk memeriksa apakah semuanya berjalan lancar:
 
 ```
 sudo nginx -t
 ```
 
-And restart Nginx server:
+Dan restart server Nginx:
 
 ```
 sudo service nginx restart
 ```
 
-##Configure your local hosts (optional, for a local domain only)
+##Konfigurasi local hosts Anda (opsional, untuk domain lokal saja)
 
-If you added a local domain, you have to configure it on your local computer (not on the server). For Ubuntu, open the file /etc/hosts and add the line:
+Jika Anda menambahkan domain lokal, Anda harus mengkonfigurasnya di komputer lokal Anda (bukan di server). Untuk Ubuntu, buka file /etc/hosts dan tambahkan baris:
 
 ```
 192.168.1.1 espocrm.local  # specify the IP address of your Nginx server
 ```
 
-For Windows, please follow these [instructions](http://support.microsoft.com/kb/923947).
+Untuk Windows, silakan ikuti [petuntuk](http://support.microsoft.com/kb/923947) berikut.
