@@ -1,41 +1,45 @@
-# Moving EspoCRM to another server
+# Memindahkan EspoCRM ke server lain
 
-Follow these steps to move EspoCRM to another server:
+Ikuti langkah berikut untuk memindahkan EspoCRM ke server lain:
 
-### Step 1. Backup files
+### Langkah 1. Backup file
 
-Open a file manager or login via SSH to archive all available files from the EspoCRM directory. More details: https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-1-backup-files.
+Buka file manager atau login via SSH untuk mengarsipkan file yang tersedia dari direktori EspoCRM. Detail lebih lanjut:
+https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-1-backup-files.
 
-### Step 2. Backup your database
+### Lagkah 2. Backup database Anda
 
-The data stored in database (MySQL, MariaDB) should be backed up. Please follow this recommendation: https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-2-backup-database.
+Data yang tersimpan dalam database (MySQL, MariaDB) harus di-_backup_. Silakan ikuti saran berikut:
+https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-2-backup-database.
 
-### Step 3. Copy files and database backups to another server
+### Langkah 3. Salin file dan backup database ke server lain
 
-Copy backups of files and of your database to a new server.
+Salin file backup database Anda ke server baru.
 
-### Step 4. Unarchive backup files
+### Langkah 4. Buka arsip file backup
 
-To unarchive backup files, you can use Archive Manager or this instruction: https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-1-unarchive-backup-files. 
-Note: Files need to be placed in the web-server directory.
+Untuk membuka arsip file backup, Anda dapat menggunakan Archive Manager atau petunjuk berikut:
+https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-1-unarchive-backup-files.
+Catatan: File harus berada dalam direktori web-server.
 
-### Step 5. Configure a server
+### Langkah 5. Konfigurasi server
 
-Configure a new server based on the recommendations here: https://www.espocrm.com/documentation/administration/server-configuration/.
+Konfigurasikan server baru berdasarkan rekomendasi ini: https://www.espocrm.com/documentation/administration/server-configuration/.
 
-### Step 6. Correct permissions
+### Langkah 6. Koreksi izin
 
-Set required permissions and files owner, https://www.espocrm.com/documentation/administration/server-configuration/#user-content-required-permissions-for-unix-based-systems.
+Atur izin yang diperlukan dan pemilik file, https://www.espocrm.com/documentation/administration/server-configuration/#user-content-required-permissions-for-unix-based-systems.
 
-### Step 7. Import your database backup
+### Langkah 7. Impor backup database Anda
 
-First, you have to create a new database with a user in MySQL. To import your database from the backup, follow the instuction: https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-3-import-database-dump.
+Pertama, Anda harus membuat database baru dengan pengguna di MySQL. Untuk mengimpor database dari backup, ikuti langkah ini:
+https://github.com/espocrm/documentation/blob/master/administration/backup-and-restore.md#step-3-import-database-dump.
 
-### Step 8. Correct EspoCRM configurations
+### Langkah 8. Koreksi konfigurasi EspoCRM
 
-After successfully importing and configuring the server, please correct EspoCRM configurations in the file `ESPOCRM_DIRECTORY/data/config.php`:
+Setelah sukses mengimpor dan mengkonfigurasi server, silakan koreksi konfigurasi EspoCRM di dalam file `ESPOCRM_DIRECTORY/data/config.php`:
 
- * database connection settings:
+ * pengaturan koneksi database:
   
   ```php
   'database' => [
@@ -48,13 +52,13 @@ After successfully importing and configuring the server, please correct EspoCRM 
     ],
   ```
    
-   * "siteUrl" - if your domain name (URL) is changed:
+   * "siteUrl" - jika nama domain Anda (URL) berubah:
   
   ```php
   'siteUrl' => 'https://new-link.com',
   ```
   
-  * default files owner (only if different):
+  * pemilik file default (jika berbeda):
   
   ```php
   'defaultPermissions' => [
@@ -63,11 +67,11 @@ After successfully importing and configuring the server, please correct EspoCRM 
     ]
   ```
 
-  where `www-data` is your web-server user.
+  dimana `www-data` adalah pengguna web-server Anda.
 
-### Step 9. Setup a crontab
+### Langkah 9. Atur crontab
 
-Setup a crontab, https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab.
-Note: it should be configured under your web-server user.
+Atur crontab, https://www.espocrm.com/documentation/administration/server-configuration/#user-content-setup-a-crontab.
+Catatan: ini harus dikonfigurasi dibawah pengguna web-server Anda.
 
-That's all. Now, your EspoCRM instance is running on a new server.
+Itu saja. Sekarang EspoCRM Anda berjalan di server baru.
