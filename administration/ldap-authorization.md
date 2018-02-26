@@ -1,59 +1,59 @@
-# Ldap Authorization
+# Otorisasi Ldap
 
-In this guide, we will show how to configure LDAP authorization for EspoCRM. Let’s go.
+Dalam panduan ini, kami akan menunjukkan cara mengkonfigurasi otorisasi LDAP untuk EspoCRM. Ayo!
 
-Go to your LDAP server and create a base DN for the EspoCRM users like
+Buka server LDAP Anda dan buat _base_ DN untuk pengguna EspoCRM seperti
 ```
 cn=espo-users,ou=users,dc=espo,dc=local
 ```
 
-We have to create a system user which will have access to the users DN (“cn=espo-users,ou=users,dc=espo,dc=local”). So, the full DN for this system user will be
+Kita harus membuat pengguna sistem yang memiliki akses ke pengguna DN (“cn=espo-users,ou=users,dc=espo,dc=local”). Jadi, DN yang lengkap untuk pengguna sistem ini akan menjadi
 ```
 cn=LDAP User,cn=espo-users,ou=users,dc=espo,dc=local
 ```
-Now, we can add LDAP user to access to EspoCRM. E.g. Espo Tester with the username “tester” inside the “cn=espo-users,ou=users,dc=espo,dc=local” DN. Please note: to be able to use this login format for EspoCRM, you have to specify the “Username Attribute” and “Base DN” options.
+Sekarang, kita dapat menambahkan pengguna LDAP untuk mengakses EspoCRM. Misalnya Espo Tester dengan nama pengguna “tester” di dalam DN “cn=espo-users,ou=users,dc=espo,dc=local”. Harap diperhatikan: Agar dapat menggunakan format login untuk EspoCRM ini, Anda harus menentukan opsi “Username Attribute” dan “Base DN”.
 
-Then, go to EspoCRM  Authentication settings in the Administrator panel, select `LDAP` method and fill in the LDAP details:
+Kemudian, buka pengaturan Otentikasi EspoCRM di panel Administrator, pilih metode `LDAP` dan isi rincian LDAP dengan:
 
 ![1](../_static/images/administration/ldap-authorization/ldap-configuration.png)
 
-* Host – LDAP IP or host name.
-* Port – connection port.
-* Auth – access credentials for the LDAP server:
- * Full User DN – the full system user DN which allows to search other users.
- * Password – the password to access the LDAP server.
-* Security – SSL or TSL protocol.
-* Username Attribute – the attribute to identify the user. For Active Directory it can be “userPrincipalName” or “sAMAccountName”.
-* Account Canonical Form – type of your account canonical form. There are 4 options:
- * Dn – the form in the format `CN=tester,CN=Espocrm,DC=company,DC=com`.
- * Username – the form `tester`.
- * Backslash – the form `COMPANY\tester`.
- * Principal – the form `tester@company.com`.
-* Bind Requires Dn – if need to format the username in the DN form.
-* Base Dn – the default base DN which is used for searching users.
-* User Login Filter – the filter which allows to restrict users who are able to use EspoCRM. E.g. `memberOf=cn=espoGroup,cn=espo-users,ou=users,dc=espo,dc=local`.
-* Account Domain Name – The domain which is used for authorization the LDAP server.
-* Account Domain Name Short – The short domain which is used for authorization the LDAP server.
-* Try Username Split – the option to split a username with the domain.
-* Opt Referrals – if referrals should be followed to the LDAP client.
-* Create User in EspoCRM – this option allows EspoCRM to create a user from the LDAP.
- * User First Name Attribute – LDAP attribute which is used to determine the user first name.
- * User Last Name Attribute – LDAP attribute which is used to determine the user last name.
- * User Title Attribute – LDAP attribute which is used to determine the user title.
- * User Email Address Attribute – LDAP attribute which is used to determine the user email address.
- * User Phone Number Attribute – LDAP attribute which is used to determine the user phone number.
+* Host – IP LDAP atau nama host.
+* Port – port koneksi.
+* Auth – akses kredensial untuk server LDAP:
+ * Full User DN – pengguna sistem penuh DN memungkinkan untuk mencari pengguna lain.
+ * Password – kata sandi untuk mengakses server LDAP.
+* Security – protokol TSL atau SSL.
+* Username Attribute – atribut untuk mengidentifikasi pengguna. Untuk Direktori Aktif dapat berupa “userPrincipalName” atau “sAMAccountName”.
+* Account Canonical Form – ketik formulir canonical akun Anda. Ada 4 opsi:
+ * Dn – formulir dalam format `CN=tester,CN=Espocrm,DC=company,DC=com`.
+ * Username – formulir `tester`.
+ * Backslash – formulir `COMPANY\tester`.
+ * Principal – formulir `tester@company.com`.
+* Bind Requires Dn – diperlukan jika ingin memformat nama pengguna di formulir DN.
+* Base Dn – base default DN yang digunakan untuk mencari pengguna
+* User Login Filter – filter yang memungkinkan untuk membatasi pengguna yang mengakses EspoCRM. Misalnya `memberOf=cn=espoGroup,cn=espo-users,ou=users,dc=espo,dc=local`.
+* Account Domain Name – Domain yang digunakan untuk otorisasi server LDAP.
+* Account Domain Name Short – Domain pendek yang digunakan untuk otorisasi server LDAP.
+* Try Username Split – opsi untuk membagi username dengan domain.
+* Opt Referrals – jika rujukan harus diikuti ke klien LDAP.
+* Create User in EspoCRM – opsi ini memungkinkan EspoCRM membuat pengguna dari LDAP.
+ * User First Name Attribute – atribut LDAP yang digunakan untuk menentukan nama pertama pengguna.
+ * User Last Name Attribute – atribut LDAP yang digunakan untuk menentukan nama terakhir pengguna.
+ * User Title Attribute – atribut LDAP yang digunakan untuk menentukan gelar pengguna.
+ * User Email Address Attribute – atribut LDAP yang digunakan untuk menentukan surel pengguna.
+ * User Phone Number Attribute – atribut LDAP yang digunakan untuk menentukan nomor ponsel pengguna.
 
-Now, go to the login page and enter user credentials.
+Sekarang, masuk ke halaman login dan masukkan kredensial pengguna.
 
 ![2](../_static/images/administration/ldap-authorization/ldap-login.png)
 
-User has been authenticated and automatically created in the EspoCRM.
+Pengguna telah dikonfirmasi dan dibuat secara otomatis di EspoCRM.
 
-##Configuration instructions based on your server:
-* [Active Directory server](ldap-authorization-for-ad.md)
-* [OpenLDAP server](ldap-authorization-for-openldap.md)
+##Petunjuk konfigurasi berdasarkan server Anda:
+* [server Direktori Aktif](ldap-authorization-for-ad.md)
+* [server OpenLDAP](ldap-authorization-for-openldap.md)
 
-More information about configuring LDAP you can read on the [Zend\Ldap library](https://zendframework.github.io/zend-ldap/intro/) page, as EspoCRM uses this library.
+Informasi lebih lanjut tentang mengonfigurasi LDAP dapat Anda baca di laman [Zend\Ldap library](https://zendframework.github.io/zend-ldap/intro/), karena EspoCRM menggunakan _library_ ini.
 
 
 
